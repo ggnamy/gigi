@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 Ghibli pew pew 🍀</title>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Nunito:wght@400;700;800;900&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-lavender: #bdb4f1;
+  --mint: #70d4ba;
+  --sky: #95C5f9;
+  --sakura: #f4bbe9;
+  --rose: #e7847f;
+  --yellow: #fcf299;
+  --cream: #f5f2d1;
+  --text: #6285e8;
+  --purple: #a991f7;
+  --peach: #ffb8a0;
+  --soft-white: rgba(255,255,255,0.85);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Nunito', 'Mitr', sans-serif;
+  min-height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='24' font-size='24'%3E🌸%3C/text%3E%3C/svg%3E") 16 16, auto;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+.bg-wrap {
+  position:fixed; inset:0; z-index:0;
+  background: linear-gradient(135deg, #bdb4f1 0%, #f4bbe9 25%, #95C5f9 50%, #70d4ba 75%, #fcf299 100%);
+  background-size:400% 400%;
+  animation: gradShift 8s ease infinite;
+}
+@keyframes gradShift {
+  0%   { background-position:0% 50%; }
+  50%  { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+
+/* ===== FLOATING ORBS ===== */
+.orbs { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.orb {
+  position:absolute; border-radius:50%;
+  filter:blur(60px); opacity:0.45;
+  animation: orbFloat linear infinite;
+}
+.orb:nth-child(1)  { width:280px;height:280px;background:#bdb4f1;left:5%;top:10%;  animation-duration:14s; }
+.orb:nth-child(2)  { width:200px;height:200px;background:#f4bbe9;left:70%;top:5%;  animation-duration:18s;animation-delay:-4s; }
+.orb:nth-child(3)  { width:320px;height:320px;background:#70d4ba;left:30%;top:60%; animation-duration:22s;animation-delay:-8s; }
+.orb:nth-child(4)  { width:150px;height:150px;background:#fcf299;left:80%;top:70%; animation-duration:12s;animation-delay:-2s; }
+.orb:nth-child(5)  { width:250px;height:250px;background:#95C5f9;left:-5%;top:50%; animation-duration:16s;animation-delay:-6s; }
+@keyframes orbFloat {
+  0%   { transform:translateY(0) scale(1) rotate(0deg); }
+  33%  { transform:translateY(-40px) scale(1.1) rotate(10deg); }
+  66%  { transform:translateY(20px) scale(0.95) rotate(-5deg); }
+  100% { transform:translateY(0) scale(1) rotate(0deg); }
+}
+
+/* ===== FLOATING EMOJIS BACKGROUND ===== */
+.float-ems { position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden; }
+.fem {
+  position:absolute;font-size:28px;
+  animation: rainDown linear infinite;
+  opacity:0.35;
+}
+@keyframes rainDown {
+  0%   { transform:translateY(-60px) rotate(0deg); opacity:0; }
+  10%  { opacity:0.35; }
+  90%  { opacity:0.35; }
+  100% { transform:translateY(110vh) rotate(360deg); opacity:0; }
+}
+
+/* ===== SPARKLE SYSTEM ===== */
+.sparkle-layer { position:fixed;inset:0;z-index:3;pointer-events:none; }
+.spark {
+  position:absolute; width:8px; height:8px;
+  border-radius:50%; background:white;
+  animation:sparkPop 1.2s ease forwards;
+  pointer-events:none;
+}
+@keyframes sparkPop {
+  0%   { transform:scale(0) rotate(0deg); opacity:1; }
+  50%  { transform:scale(1.5) rotate(180deg); opacity:0.8; }
+  100% { transform:scale(0) rotate(360deg); opacity:0; }
+}
+
+/* ===== MAIN CARD ===== */
+.card {
+  position:relative; z-index:10;
+  width:92%; max-width:430px;
+  background:rgba(255,255,255,0.78);
+  backdrop-filter:blur(20px);
+  border-radius:44px;
+  border:6px solid rgba(255,255,255,0.95);
+  padding:32px 28px;
+  text-align:center;
+  box-shadow: 0 30px 80px rgba(100,80,180,0.15), 0 0 0 1px rgba(255,255,255,0.5) inset, 0 8px 32px rgba(255,255,255,0.6) inset;
+  overflow:hidden;
+}
+.card::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 20% 20%, rgba(255,255,255,0.6) 0%, transparent 60%);
+  border-radius:inherit; pointer-events:none;
+}
+
+/* ===== STAGES ===== */
+.stage { display:none; }
+.stage.active { display:block; animation:popIn 0.6s cubic-bezier(0.34,1.56,0.64,1); }
+@keyframes popIn {
+  from { opacity:0; transform:scale(0.6) translateY(30px); }
+  to   { opacity:1; transform:scale(1) translateY(0); }
+}
+
+/* ===== HEADINGS ===== */
+.stage-title {
+  font-size:1.55rem; font-weight:900;
+  margin-bottom:6px;
+  text-shadow:0 2px 8px rgba(255,255,255,0.8);
+}
+.stage-sub {
+  font-size:0.82rem; color:#999;
+  margin-bottom:18px; line-height:1.5;
+}
+
+/* ===== PROGRESS BAR ===== */
+.prog-wrap {
+  width:100%; height:10px;
+  background:rgba(0,0,0,0.05);
+  border-radius:99px; overflow:hidden;
+  margin-bottom:20px;
+}
+.prog-bar {
+  height:100%;
+  background:linear-gradient(90deg, var(--mint), var(--sky), var(--sakura));
+  border-radius:99px;
+  transition:width 0.8s cubic-bezier(0.34,1.56,0.64,1);
+  position:relative; overflow:hidden;
+}
+.prog-bar::after {
+  content:'';
+  position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);
+  animation:shimmer 2s linear infinite;
+}
+@keyframes shimmer { to { left:200%; } }
+
+/* ===== STAGE BADGE ===== */
+.stage-badge {
+  display:inline-block;
+  background:linear-gradient(135deg, var(--purple), var(--sky));
+  color:white; font-size:0.72rem; font-weight:800;
+  padding:4px 14px; border-radius:99px;
+  margin-bottom:14px;
+  box-shadow:0 4px 12px rgba(169,145,247,0.4);
+  letter-spacing:1px; text-transform:uppercase;
+}
+
+/* ===== ST1: KEYPAD ===== */
+.dots { display:flex;justify-content:center;gap:14px;margin:16px 0 22px; }
+.dot {
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(0,0,0,0.08);
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  border:3px solid rgba(255,255,255,0.8);
+}
+.dot.filled {
+  background:var(--rose);
+  transform:scale(1.4);
+  box-shadow:0 0 12px rgba(231,132,127,0.6);
+}
+.dot.wrong {
+  background:#ff4444;
+  animation:shake 0.4s ease;
+}
+@keyframes shake {
+  0%,100% { transform:translateX(0); }
+  20%,60%  { transform:translateX(-8px); }
+  40%,80%  { transform:translateX(8px); }
+}
+
+.keypad {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:12px; margin:0 auto; max-width:280px;
+}
+.key {
+  width:72px;height:72px;border-radius:50%;
+  border:none;background:white;
+  font-size:1.25rem;font-weight:800;color:var(--text);
+  cursor:pointer; margin:0 auto;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 0 var(--sakura), 0 8px 20px rgba(0,0,0,0.06);
+  transition:all 0.15s;
+  position:relative; overflow:hidden;
+}
+.key::before {
+  content:'';
+  position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, rgba(255,255,255,0.8), transparent 60%);
+}
+.key:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 9px 0 var(--sakura), 0 12px 24px rgba(0,0,0,0.1); }
+.key:active { transform:translateY(6px); box-shadow:0 0px 0 var(--sakura); }
+.key-del { background:rgba(231,132,127,0.15); color:var(--rose); }
+.key-ok { background:linear-gradient(135deg,var(--mint),#5bc8ad); color:white; box-shadow:0 6px 0 #4aaa90, 0 8px 20px rgba(112,212,186,0.3); }
+.key-ok:hover { box-shadow:0 9px 0 #4aaa90, 0 12px 24px rgba(112,212,186,0.4); }
+
+.hint-text {
+  font-size:0.7rem; color:#bbb;
+  margin-top:14px; font-style:italic;
+}
+
+/* ===== ST2: ENVELOPE ===== */
+.envelope-anim {
+  font-size:100px;
+  display:inline-block;
+  cursor:pointer;
+  animation:envBeat 2s infinite;
+  transition:transform 0.3s;
+  filter:drop-shadow(0 10px 20px rgba(244,187,233,0.5));
+}
+@keyframes envBeat {
+  0%,100% { transform:scale(1) rotate(-3deg); }
+  25%     { transform:scale(1.08) rotate(3deg); }
+  50%     { transform:scale(1.12) rotate(-2deg); }
+  75%     { transform:scale(1.05) rotate(2deg); }
+}
+.envelope-anim:hover { transform:scale(1.2) rotate(10deg) !important; animation-play-state:paused; }
+
+.letter-preview {
+  background:white; border-radius:20px;
+  padding:16px; margin:14px 0;
+  font-size:0.85rem; line-height:1.7;
+  color:#888; font-style:italic;
+  border:2px dashed var(--sakura);
+  text-align:left;
+}
+.letter-preview span { filter:blur(4px); }
+
+/* ===== ST3: QUIZ ===== */
+.quiz-q {
+  background:linear-gradient(135deg, var(--cream), var(--yellow));
+  border-radius:20px; padding:16px;
+  margin-bottom:16px; font-weight:700;
+  font-size:1rem; color:var(--text);
+  border:3px solid rgba(255,255,255,0.8);
+  box-shadow:0 4px 16px rgba(252,242,153,0.4);
+}
+.quiz-btn {
+  width:100%; padding:14px 18px;
+  margin:7px 0; border:none; border-radius:22px;
+  background:white; color:var(--text);
+  font-size:0.9rem; font-weight:700;
+  cursor:pointer; text-align:left;
+  box-shadow:0 4px 0 #eee, 0 6px 16px rgba(0,0,0,0.05);
+  transition:all 0.25s;
+  font-family:'Nunito','Mitr',sans-serif;
+  position:relative; overflow:hidden;
+}
+.quiz-btn::before {
+  content:'';
+  position:absolute;left:0;top:0;width:5px;height:100%;
+  background:linear-gradient(180deg,var(--mint),var(--sky));
+  border-radius:5px 0 0 5px;
+  opacity:0; transition:opacity 0.2s;
+}
+.quiz-btn:hover {
+  background:linear-gradient(135deg,#f8f4ff,var(--cream));
+  transform:translateX(4px) scale(1.01);
+  box-shadow:0 6px 0 #ddd, 0 10px 20px rgba(0,0,0,0.08);
+}
+.quiz-btn:hover::before { opacity:1; }
+.quiz-btn-no {
+  background:linear-gradient(135deg,rgba(231,132,127,0.1),rgba(244,187,233,0.15));
+  color:var(--rose);
+}
+.quiz-btn-no.running-away {
+  position:fixed !important;
+  transition:top 0.3s cubic-bezier(0.34,1.56,0.64,1), left 0.3s cubic-bezier(0.34,1.56,0.64,1) !important;
+  z-index:999; width:220px;
+  box-shadow:0 8px 24px rgba(231,132,127,0.3);
+}
+
+/* ===== ST4: CLOVER GAME ===== */
+.score-bar {
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,0.6); border-radius:16px;
+  padding:10px 16px; margin-bottom:12px;
+  border:2px solid rgba(255,255,255,0.8);
+}
+.score-num {
+  font-size:1.8rem; font-weight:900; color:var(--mint);
+  text-shadow:0 2px 8px rgba(112,212,186,0.4);
+}
+.score-label { font-size:0.75rem; color:#aaa; font-weight:700; }
+.mini-prog {
+  flex:1; height:8px; background:rgba(0,0,0,0.05);
+  border-radius:99px; overflow:hidden; margin:0 12px;
+}
+.mini-prog-fill {
+  height:100%;
+  background:linear-gradient(90deg,var(--mint),var(--sky));
+  border-radius:99px;
+  transition:width 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  width:0%;
+}
+
+#game-box {
+  height:240px;
+  background:linear-gradient(180deg,rgba(149,197,249,0.2),rgba(112,212,186,0.15));
+  border-radius:24px;
+  border:4px dashed var(--mint);
+  position:relative; overflow:hidden;
+  cursor:crosshair;
+}
+#game-box::before {
+  content:'🌿🌱🌿🌱🌿🌱🌿🌱🌿';
+  position:absolute; bottom:0; left:0; right:0;
+  font-size:20px; text-align:center; letter-spacing:2px;
+  opacity:0.4;
+}
+
+.clover-item {
+  position:absolute; font-size:32px;
+  cursor:pointer; user-select:none;
+  animation:wobble 0.5s ease infinite alternate;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  transition:transform 0.1s;
+}
+.clover-item:hover { transform:scale(1.3) rotate(20deg); }
+.clover-item:active { transform:scale(0.8); }
+@keyframes wobble {
+  from { transform:rotate(-5deg) scale(1); }
+  to   { transform:rotate(5deg) scale(1.05); }
+}
+
+.combo-text {
+  position:absolute; font-size:1.4rem; font-weight:900;
+  color:white; text-shadow:0 2px 6px rgba(0,0,0,0.2);
+  pointer-events:none; z-index:10;
+  animation:comboFloat 0.8s ease-out forwards;
+}
+@keyframes comboFloat {
+  from { opacity:1; transform:translateY(0) scale(1); }
+  to   { opacity:0; transform:translateY(-60px) scale(1.4); }
+}
+
+.game-tip {
+  font-size:0.72rem; color:#bbb; margin-top:8px;
+  animation:tipBlink 2s infinite;
+}
+@keyframes tipBlink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ===== ST5: GACHA ===== */
+.gacha-machine {
+  position:relative; display:inline-block;
+  margin:10px 0;
+}
+.gacha-icon {
+  font-size:80px;
+  display:inline-block;
+  animation:gachaIdle 3s ease-in-out infinite;
+  filter:drop-shadow(0 15px 25px rgba(169,145,247,0.4));
+}
+@keyframes gachaIdle {
+  0%,100% { transform:translateY(0) rotate(-3deg) scale(1); }
+  50%      { transform:translateY(-12px) rotate(3deg) scale(1.04); }
+}
+.gacha-icon.spinning {
+  animation:gachaSpin 0.1s linear infinite;
+}
+@keyframes gachaSpin {
+  from { transform:rotateY(0) scale(1.1); }
+  to   { transform:rotateY(360deg) scale(1.1); }
+}
+
+.gacha-result {
+  background:linear-gradient(135deg,#fff5fb,#f0f8ff);
+  border:3px solid var(--sakura); border-radius:24px;
+  padding:18px; margin:14px 0;
+  font-size:1.1rem; font-weight:800; color:var(--text);
+  display:none;
+  animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow:0 8px 24px rgba(244,187,233,0.3);
+}
+.gacha-result .result-emoji { font-size:3rem; display:block; margin-bottom:8px; }
+.gacha-rarity {
+  display:inline-block; padding:3px 12px;
+  border-radius:99px; font-size:0.7rem; font-weight:900;
+  margin-bottom:8px; letter-spacing:1px;
+}
+.rarity-ssr { background:linear-gradient(135deg,#ffd700,#ff8c00); color:white; }
+.rarity-sr  { background:linear-gradient(135deg,#a991f7,#7b68ee); color:white; }
+.rarity-r   { background:linear-gradient(135deg,var(--mint),var(--sky)); color:white; }
+
+/* ===== ST6: FINAL ===== */
+.final-wrap {
+  position:relative;
+}
+.final-img {
+  width:100px; height:100px;
+  animation:finalFloat 3s ease-in-out infinite;
+  filter:drop-shadow(0 10px 20px rgba(244,187,233,0.5));
+}
+@keyframes finalFloat {
+  0%,100% { transform:translateY(0) rotate(-5deg); }
+  50%      { transform:translateY(-18px) rotate(5deg); }
+}
+.final-letter {
+  background:linear-gradient(135deg,#fffef0,#fff5fb);
+  border:3px solid var(--sakura); border-radius:28px;
+  padding:22px 18px; margin:14px 0;
+  text-align:left; position:relative; overflow:hidden;
+}
+.final-letter::before {
+  content:'🌸';
+  position:absolute; top:-10px; right:-10px;
+  font-size:60px; opacity:0.12; transform:rotate(20deg);
+}
+.final-letter p {
+  line-height:1.9; font-size:0.9rem;
+  color:#666; font-weight:500;
+}
+.final-sig {
+  margin-top:14px; font-weight:900;
+  background:linear-gradient(135deg,var(--mint),var(--sky),var(--sakura));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  font-size:1rem;
+}
+.star-rain {
+  position:fixed; inset:0; pointer-events:none; z-index:5;
+}
+
+/* ===== BUTTONS ===== */
+.btn-main {
+  background:linear-gradient(135deg,var(--mint),#5bc8ad);
+  color:white; padding:14px 32px;
+  border-radius:50px; border:none;
+  cursor:pointer; font-weight:800;
+  font-size:0.95rem;
+  font-family:'Nunito','Mitr',sans-serif;
+  margin-top:16px;
+  box-shadow:0 8px 0 #4aaa90, 0 12px 24px rgba(112,212,186,0.35);
+  transition:all 0.2s;
+  position:relative; overflow:hidden;
+}
+.btn-main::before {
+  content:'';
+  position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+  animation:btnShine 3s linear infinite;
+}
+@keyframes btnShine { to { left:200%; } }
+.btn-main:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 11px 0 #4aaa90, 0 16px 28px rgba(112,212,186,0.45); }
+.btn-main:active { transform:translateY(8px); box-shadow:0 0 0 #4aaa90; }
+.btn-rose {
+  background:linear-gradient(135deg,var(--rose),#d96e6a);
+  box-shadow:0 8px 0 #c05a55, 0 12px 24px rgba(231,132,127,0.35);
+}
+.btn-rose:hover { box-shadow:0 11px 0 #c05a55, 0 16px 28px rgba(231,132,127,0.45); }
+.btn-rose:active { box-shadow:0 0 0 #c05a55; }
+.btn-purple {
+  background:linear-gradient(135deg,var(--purple),#8b6fd4);
+  box-shadow:0 8px 0 #7459b8, 0 12px 24px rgba(169,145,247,0.35);
+}
+.btn-purple:hover { box-shadow:0 11px 0 #7459b8, 0 16px 28px rgba(169,145,247,0.45); }
+.btn-purple:active { box-shadow:0 0 0 #7459b8; }
+
+/* ===== MUSIC BTN ===== */
+#music-btn {
+  position:fixed; top:18px; right:18px;
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  border:3px solid rgba(255,255,255,0.9);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer; font-size:22px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.1);
+  z-index:100; transition:all 0.3s;
+  animation:musicPulse 2s infinite;
+}
+@keyframes musicPulse {
+  0%,100% { box-shadow:0 4px 16px rgba(0,0,0,0.1), 0 0 0 0 rgba(112,212,186,0.4); }
+  50%      { box-shadow:0 4px 16px rgba(0,0,0,0.1), 0 0 0 10px rgba(112,212,186,0); }
+}
+#music-btn:hover { transform:scale(1.1) rotate(15deg); }
+
+/* ===== HELPER TOAST ===== */
+.toast {
+  position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
+  background:rgba(255,255,255,0.9); backdrop-filter:blur(12px);
+  padding:12px 24px; border-radius:50px;
+  font-size:0.85rem; font-weight:700; color:var(--text);
+  box-shadow:0 8px 24px rgba(0,0,0,0.1);
+  z-index:200; opacity:0; transition:opacity 0.4s;
+  border:2px solid rgba(255,255,255,0.9);
+  white-space:nowrap;
+}
+.toast.show { opacity:1; }
+
+/* ===== CONFETTI ===== */
+.confetti-piece {
+  position:fixed; width:10px; height:10px;
+  border-radius:2px;
+  animation:confettiFall linear forwards;
+  pointer-events:none; z-index:50;
+}
+@keyframes confettiFall {
+  0%   { transform:translateY(-20px) rotate(0) scaleX(1); opacity:1; }
+  100% { transform:translateY(110vh) rotate(720deg) scaleX(-1); opacity:0; }
+}
+
+/* ===== HEART FLOAT ===== */
+.heart-fly {
+  position:fixed; font-size:24px;
+  pointer-events:none; z-index:50;
+  animation:heartUp linear forwards;
+}
+@keyframes heartUp {
+  0%   { transform:translateY(0) rotate(0) scale(0); opacity:0; }
+  20%  { opacity:1; transform:scale(1.2); }
+  100% { transform:translateY(-120vh) rotate(30deg) scale(0.5); opacity:0; }
+}
+
+/* ===== CLICK STARS ===== */
+.click-star {
+  position:fixed; font-size:20px;
+  pointer-events:none; z-index:50;
+  animation:starBurst 0.6s ease-out forwards;
+}
+@keyframes starBurst {
+  0%   { transform:scale(0) rotate(0); opacity:1; }
+  50%  { transform:scale(1.8) rotate(180deg); opacity:0.8; }
+  100% { transform:scale(0) rotate(360deg); opacity:0; }
+}
+
+/* ===== SCROLLING TICKER ===== */
+.ticker-wrap {
+  position:fixed; bottom:0; left:0; right:0; z-index:20;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(8px);
+  border-top:2px solid rgba(255,255,255,0.8);
+  overflow:hidden; height:36px; display:flex; align-items:center;
+}
+.ticker-track {
+  display:flex; white-space:nowrap;
+  animation:tickerRun 30s linear infinite;
+  font-size:0.78rem; font-weight:700; color:var(--text); gap:0;
+}
+@keyframes tickerRun { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ===== MOBILE ===== */
+@media (max-width:420px) {
+  .card { padding:24px 18px; border-radius:36px; }
+  .key  { width:60px; height:60px; font-size:1.1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- BG Layers -->
+<div class="bg-wrap"></div>
+<div class="orbs">
+  <div class="orb"></div><div class="orb"></div><div class="orb"></div>
+  <div class="orb"></div><div class="orb"></div>
+</div>
+<div class="float-ems" id="femLayer"></div>
+<div class="sparkle-layer" id="sparkLayer"></div>
+<div class="star-rain" id="starRain"></div>
+
+<!-- Music -->
+<audio id="player" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+</audio>
+<div id="music-btn" onclick="toggleMusic()">🎵</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<!-- MAIN CARD -->
+<div class="card" id="mainCard">
+
+  <!-- STAGE 1: PASSWORD -->
+  <div class="stage active" id="st1">
+    <div class="stage-badge">🔐 Stage 1 / 6</div>
+    <div class="prog-wrap"><div class="prog-bar" id="pb" style="width:0%"></div></div>
+    <div class="stage-title" style="color:var(--rose)">🐱 Secret Door 🪐</div>
+    <div class="stage-sub">ใส่รหัสลับเพื่อเริ่มการผจญภัย<br>💡 ใบ้นะเลขวันที่เราเกิด 4 ตัวเบยย</div>
+    <div class="dots">
+      <div class="dot" id="d0"></div>
+      <div class="dot" id="d1"></div>
+      <div class="dot" id="d2"></div>
+      <div class="dot" id="d3"></div>
+    </div>
+    <div class="keypad">
+      <button class="key" onclick="tap(1)">1</button>
+      <button class="key" onclick="tap(2)">2</button>
+      <button class="key" onclick="tap(3)">3</button>
+      <button class="key" onclick="tap(4)">4</button>
+      <button class="key" onclick="tap(5)">5</button>
+      <button class="key" onclick="tap(6)">6</button>
+      <button class="key" onclick="tap(7)">7</button>
+      <button class="key" onclick="tap(8)">8</button>
+      <button class="key" onclick="tap(9)">9</button>
+      <button class="key key-del" onclick="del()">⌫</button>
+      <button class="key" onclick="tap(0)">0</button>
+      <button class="key key-ok" onclick="checkPass()">✔</button>
+    </div>
+    <p class="hint-text" id="wrongHint"></p>
+  </div>
+
+  <!-- STAGE 2: LETTER -->
+  <div class="stage" id="st2">
+    <div class="stage-badge">💌 Stage 2 / 6</div>
+    <div class="prog-wrap"><div class="prog-bar" style="width:16%"></div></div>
+    <div class="stage-title" style="color:var(--purple)">📬 มีจดหมายถึงพิววววววว!</div>
+    <div class="stage-sub">จดหมายลับจากใครบางคน... ลองเปิดดูเบยย</div>
+    <div class="envelope-anim" onclick="go(3)" id="envelope">💌</div>
+    <div class="letter-preview">
+      <span>ถึงเธอคนที่ฉันแอบชอบมาสักพักแล้ว...</span><br>
+      <span>วันนี้อยากบอกว่า...</span>
+    </div>
+    <br>
+    <button class="btn-main btn-purple" onclick="go(3)">เปิดจดหมาย 💜</button>
+    <p style="font-size:0.7rem;color:#ccc;margin-top:10px;">⚠️ คลิกซองหรือปุ่มก็ได้นะ</p>
+  </div>
+
+  <!-- STAGE 3: QUIZ -->
+  <div class="stage" id="st3">
+    <div class="stage-badge">❓ Stage 3 / 6</div>
+    <div class="prog-wrap"><div class="prog-bar" style="width:32%"></div></div>
+    <div class="stage-title" style="color:var(--text)">🎀 Quiz Time!</div>
+    <div class="quiz-q">💬 วันนี้เหนื่อยม้ายยยยยยยย 🥺</div>
+    <button class="quiz-btn" onclick="go(4)">😮‍💨 เหนื่อยมากกก อยากได้กำลังใจ!</button>
+    <button class="quiz-btn" onclick="go(4)">😊 นิดหน่อย แต่เห็นข้อความนี้ก็หาย~</button>
+    <button class="quiz-btn" onclick="go(4)">💪 ไม่เหนื่อยเลย แข็งแกร่งมาก!</button>
+    <button class="quiz-btn quiz-btn-no" id="noBtn" onmouseover="runAway(event)" ontouchstart="runAway(event)">
+      😒 เหนื่อยแต่ไม่อยากบอกใคร...
+    </button>
+    <p style="font-size:0.7rem;color:#ccc;margin-top:8px;">ตอบหน่อยจิ</p>
+  </div>
+
+  <!-- STAGE 4: CLOVER GAME -->
+  <div class="stage" id="st4">
+    <div class="stage-badge">🍀 Stage 4 / 6</div>
+    <div class="prog-wrap"><div class="prog-bar" style="width:50%"></div></div>
+    <div class="stage-title" style="color:var(--mint)">🍀 Clover Garden!</div>
+    <div class="score-bar">
+      <div>
+        <div class="score-num" id="scoreNum">0</div>
+        <div class="score-label">ใบที่เก็บได้</div>
+      </div>
+      <div class="mini-prog"><div class="mini-prog-fill" id="miniProg"></div></div>
+      <div style="font-size:1.5rem;font-weight:900;color:#aaa">/ 10</div>
+    </div>
+    <div id="game-box"></div>
+    <p class="game-tip">⬆️ คลิกโคลเวอร์สีเขียวเพื่อเก็บ! 🌸 สีชมพูระวัง!</p>
+  </div>
+
+  <!-- STAGE 5: GACHA -->
+  <div class="stage" id="st5">
+    <div class="stage-badge">🎰 Stage 5 / 6</div>
+    <div class="prog-wrap"><div class="prog-bar" style="width:66%"></div></div>
+    <div class="stage-title" style="color:var(--purple)">✨ Lucky Gacha!</div>
+    <div class="stage-sub">สุ่มๆๆๆๆๆๆ;p</div>
+    <div class="gacha-machine">
+      <div class="gacha-icon" id="gachaIcon">🎰</div>
+    </div>
+    <div class="gacha-result" id="gachaResult">
+      <span class="result-emoji" id="resultEmoji">🌟</span>
+      <div class="gacha-rarity" id="resultRarity">SSR</div>
+      <div id="resultText">คำอวยพรพิเศษ</div>
+    </div>
+    <br>
+    <button class="btn-main btn-purple" id="spinBtn" onclick="doSpin()">🎲 สุ่มเลย!</button>
+    <button class="btn-main" id="nextBtn" style="display:none" onclick="go(6)">ไปด่านสุดท้าย 🌸</button>
+  </div>
+
+  <!-- STAGE 6: FINAL -->
+  <div class="stage" id="st6">
+    <div class="stage-badge">🏆 Final Stage!</div>
+    <div class="prog-wrap"><div class="prog-bar" style="width:100%"></div></div>
+    <div class="final-wrap">
+      <img class="final-img" src="https://cdn-icons-png.flaticon.com/512/6591/6591035.png" alt="totoro" onerror="this.style.fontSize='80px';this.outerHTML='<div style=\'font-size:80px\'>🐱</div>'">
+      <div class="final-letter">
+        <p id="finalTxt"></p>
+      </div>
+      <div class="final-sig">~ ด้วยรัก จากคนที่แอบซัพพอร์ตเธออยู่ 🍀 ~</div>
+    </div>
+    <button class="btn-main btn-rose" onclick="replay()">🔄 เล่นใหม่อีกทีนะ!</button>
+  </div>
+
+</div>
+
+<script>
+// ===== CONFIG =====
+const SECRET = "9999";
+const GACHA_POOL = [
+  { r:"SSR", emoji:"🌟", text:"วันนี้เธอคือดาวที่สว่างที่สุด ไม่มีใครสว่างเท่าเธอในใจฉัน ✨" },
+  { r:"SSR", emoji:"💖", text:"เธอพิเศษมากนะ แค่รู้ว่าเธออยู่ดีก็ทำให้วันนี้สดใสแล้ว 💖" },
+  { r:"SR",  emoji:"🌈", text:"หลังฝนต้องมีรุ้ง และหลังวันเหนื่อยต้องมีคืนที่อบอุ่นเสมอ 🌈" },
+  { r:"SR",  emoji:"🍀", text:"โคลเวอร์สี่แฉกมีไม่บ่อย แต่โชคดีของเธอมีทุกวัน! 🍀" },
+  { r:"R",   emoji:"🌸", text:"เหมือนซากุระที่บานทุกปี เธอก็จะสดใสขึ้นทุกวันนะ~ 🌸" },
+  { r:"R",   emoji:"☕", text:"วันนี้อย่าลืมพักดื่มน้ำอุ่นๆ แล้วก็ยิ้มให้ตัวเองบ้างนะ ☕" },
+  { r:"SSR", emoji:"🏆", text:"เธอผ่านทุกด่านมาได้! นั่นพิสูจน์ว่าเธอเก่งแค่ไหน 🏆" },
+  { r:"SR",  emoji:"🎯", text:"ทุกก้าวที่เธอเดินมา ทำให้เธอแข็งแกร่งกว่าเดิมเสมอ 🎯" },
+];
+const FINAL_MSG = "ถึงคนที่เปิดจดหมายนี้...\n\nขอบคุณนะที่เดินทางมาถึงตรงนี้ 🍀 ไม่ว่าวันนี้จะเหนื่อยแค่ไหน ขอให้รู้ไว้ว่ามีคนคอยซัพพอร์ตเธออยู่เสมอ ยิ้มกว้างๆ นะคนเก่ง แล้วก็อย่าลืมรักตัวเองด้วยนะ 💖\n\nวันนี้เก่งมากเลย จริงๆ ไม่ได้พูดเล่น~";
+const TICKER_MSG = "🌸 ยินดีต้อนรับสู่ Ghibli Journey ✨ | 🍀  | 💌 มีจดหมายลับรอเธออยู่ | 🌟 ทุกก้าวที่เดินคือความกล้า | 🎀 เธอพิเศษมากนะ | 🌈 วันนี้ต้องดีแน่นอน | 💖 ซัพพอร์ตเธออยู่เสมอ | 🎵 เพลงนี้เปิดให้เธอโดยเฉพาะ | ";
+
+// ===== STATE =====
+let pin = "";
+let gameScore = 0;
+let gameIv = null;
+let musicOn = false;
+let spinCount = 0;
+let wrongCount = 0;
+let noBtnEscape = false;
+
+// ===== INIT =====
+window.addEventListener("load", () => {
+  buildFloatEmojis();
+  buildTicker();
+  startSparkles();
+  document.addEventListener("click", e => clickStar(e.clientX, e.clientY));
+});
+
+// ===== FLOATING EMOJIS =====
+function buildFloatEmojis() {
+  const layer = document.getElementById("femLayer");
+  const ems = ["🌸","🍀","✨","💫","🌟","💕","🌈","🦋","🌺","💮","🍃","⭐","💜","🌙"];
+  for(let i=0;i<18;i++){
+    const d = document.createElement("div");
+    d.className = "fem";
+    d.textContent = ems[Math.floor(Math.random()*ems.length)];
+    d.style.left = Math.random()*100+"%";
+    d.style.animationDuration = (8+Math.random()*14)+"s";
+    d.style.animationDelay = -(Math.random()*20)+"s";
+    d.style.fontSize = (18+Math.random()*22)+"px";
+    layer.appendChild(d);
+  }
+}
+
+// ===== TICKER =====
+function buildTicker() {
+  const t = document.getElementById("ticker");
+  t.textContent = TICKER_MSG + TICKER_MSG;
+}
+
+// ===== SPARKLES =====
+function startSparkles() {
+  setInterval(() => {
+    const l = document.getElementById("sparkLayer");
+    const s = document.createElement("div");
+    s.className = "spark";
+    s.style.left = Math.random()*100+"vw";
+    s.style.top  = Math.random()*100+"vh";
+    s.style.background = ["#f4bbe9","#95C5f9","#70d4ba","#fcf299","#bdb4f1","#e7847f"][Math.floor(Math.random()*6)];
+    s.style.width = s.style.height = (4+Math.random()*10)+"px";
+    l.appendChild(s);
+    setTimeout(()=>s.remove(), 1200);
+  }, 300);
+}
+
+// ===== CLICK STARS =====
+function clickStar(x,y) {
+  const ems = ["⭐","✨","💫","🌸","💖","🍀"];
+  const el = document.createElement("div");
+  el.className = "click-star";
+  el.style.left = (x-12)+"px";
+  el.style.top  = (y-12)+"px";
+  el.textContent = ems[Math.floor(Math.random()*ems.length)];
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(), 600);
+}
+
+// ===== KEYPAD =====
+function tap(n) {
+  if(pin.length >= 4) return;
+  pin += n;
+  updateDots();
+  if(pin.length === 4) setTimeout(checkPass, 300);
+}
+function del() {
+  pin = pin.slice(0,-1);
+  updateDots();
+  document.getElementById("wrongHint").textContent = "";
+}
+function updateDots() {
+  for(let i=0;i<4;i++){
+    const d = document.getElementById("d"+i);
+    d.classList.toggle("filled", i < pin.length);
+  }
+}
+function checkPass() {
+  if(pin === SECRET) {
+    boom(40);
+    showToast("🎉 เยส! รหัสถูกต้องแล้ว!");
+    setTimeout(()=>go(2), 600);
+  } else {
+    wrongCount++;
+    const hints = [
+      "อุ๊ย ผิดแล้ว! ลองใหม่นะ 😋",
+      "ยังไม่ถูกเลย~ hint: ตัวเลขเรียงกัน 😏",
+      "ล้มเหลวซ้ำๆ เหมือนฉันที่ชอบเธอ 😂",
+      "ผิดอีกแล้ว! มาๆ เดาง่ายๆ ได้เลย 🤭",
+      "OK จะบอกเลย มันคือ 1-2-3-4 นะ 😂",
+    ];
+    document.getElementById("wrongHint").textContent = hints[Math.min(wrongCount-1, hints.length-1)];
+    const dots = document.querySelectorAll(".dot");
+    dots.forEach(d => d.classList.add("wrong"));
+    setTimeout(() => dots.forEach(d => d.classList.remove("wrong","filled")), 600);
+    pin = "";
+    shakeDots();
+  }
+}
+function shakeDots() {
+  const wrap = document.querySelector(".dots");
+  wrap.style.animation = "shake 0.4s ease";
+  setTimeout(()=>wrap.style.animation="",450);
+}
+
+// ===== NAVIGATION =====
+function go(n) {
+  document.querySelectorAll(".stage").forEach(s=>s.classList.remove("active"));
+  const el = document.getElementById("st"+n);
+  if(el) el.classList.add("active");
+  if(n===4) initGame();
+  if(n===6) startFinal();
+  // scroll to top of card
+  document.getElementById("mainCard").scrollTop = 0;
+}
+
+// ===== QUIZ: RUN AWAY BUTTON =====
+function runAway(e) {
+  const btn = document.getElementById("noBtn");
+  if(!noBtnEscape) {
+    noBtnEscape = true;
+    btn.classList.add("running-away");
+    btn.textContent = "😏 กดไม่ได้หรอกนะ~";
+  }
+  const margin = 80;
+  const maxX = window.innerWidth  - btn.offsetWidth  - margin;
+  const maxY = window.innerHeight - btn.offsetHeight - margin;
+  btn.style.left = (margin + Math.random()*maxX)+"px";
+  btn.style.top  = (margin + Math.random()*maxY)+"px";
+  showToast("🏃 ปุ่มหนีไปแล้ว! คลิกปุ่มอื่นแทนเลย~");
+}
+
+// ===== CLOVER GAME =====
+function initGame() {
+  gameScore = 0;
+  document.getElementById("scoreNum").textContent = "0";
+  document.getElementById("miniProg").style.width = "0%";
+  const box = document.getElementById("game-box");
+  box.innerHTML = "";
+  if(gameIv) clearInterval(gameIv);
+
+  gameIv = setInterval(() => {
+    if(gameScore >= 10) {
+      clearInterval(gameIv);
+      showToast("🏆 เก็บครบแล้ว! ไปต่อ!");
+      boom(25);
+      setTimeout(()=>go(5), 800);
+      return;
+    }
+    spawnItem(box);
+  }, 700);
+}
+
+function spawnItem(box) {
+  const isClover = Math.random() > 0.35;
+  const item = document.createElement("div");
+  item.className = "clover-item";
+  item.textContent = isClover ? "🍀" : ["🌸","🌺","💮"][Math.floor(Math.random()*3)];
+  item.style.left  = (5+Math.random()*80)+"%";
+  item.style.top   = "-50px";
+  item.style.transition = `top ${2+Math.random()*2}s linear`;
+  box.appendChild(item);
+
+  setTimeout(()=>{ item.style.top = "270px"; },80);
+  setTimeout(()=>item.remove(), 4500);
+
+  if(isClover) {
+    item.onclick = (e) => {
+      gameScore++;
+      document.getElementById("scoreNum").textContent = gameScore;
+      document.getElementById("miniProg").style.width = (gameScore*10)+"%";
+      spawnCombo(e.clientX, e.clientY, gameScore);
+      item.remove();
+      if(gameScore >= 10) {
+        clearInterval(gameIv);
+        showToast("🏆 เก็บครบ 10 ใบแล้ว! เก่งมาก!");
+        boom(25);
+        setTimeout(()=>go(5), 1000);
+      }
+    };
+  } else {
+    item.onclick = () => {
+      showToast("😅 อุ๊ย! อย่าเก็บดอกไม้สิ!");
+      item.style.animation = "shake 0.3s ease";
+      setTimeout(()=>item.remove(), 400);
+    };
+  }
+}
+
+function spawnCombo(x, y, sc) {
+  const msgs = ["Nice! 🌟","Combo! ✨","Good! 💚","Amazing! 🍀","Wow! 🏆"];
+  const el = document.createElement("div");
+  el.className = "combo-text";
+  el.style.left = (x-40)+"px";
+  el.style.top  = (y-30)+"px";
+  el.textContent = sc >= 9 ? "LAST ONE!! 🔥" : msgs[Math.floor(Math.random()*msgs.length)];
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),800);
+}
+
+// ===== GACHA =====
+function doSpin() {
+  spinCount++;
+  const icon = document.getElementById("gachaIcon");
+  const btn  = document.getElementById("spinBtn");
+  const res  = document.getElementById("gachaResult");
+  btn.disabled = true;
+  icon.classList.add("spinning");
+  res.style.display = "none";
+
+  let frames = 0;
+  const maxFrames = 15 + spinCount*5;
+  const iv = setInterval(()=>{
+    const tmp = GACHA_POOL[Math.floor(Math.random()*GACHA_POOL.length)];
+    document.getElementById("resultEmoji").textContent = tmp.emoji;
+    document.getElementById("resultText").textContent  = tmp.text;
+    const rc = document.getElementById("resultRarity");
+    rc.className = `gacha-rarity rarity-${tmp.r.toLowerCase()}`;
+    rc.textContent = tmp.r;
+    frames++;
+    if(frames >= maxFrames){
+      clearInterval(iv);
+      icon.classList.remove("spinning");
+      res.style.display = "block";
+      btn.disabled = false;
+      boom(20);
+      floatHearts();
+      if(spinCount >= 3){
+        btn.style.display = "none";
+        document.getElementById("nextBtn").style.display = "inline-block";
+        showToast("🌟 สุ่มครบ 3 ครั้งแล้ว! ไปด่านสุดท้ายได้เลย!");
+      } else {
+        showToast(`✨ ได้รับ ${tmp.r}! สุ่มอีก ${3-spinCount} ครั้งก็ไปต่อได้!`);
+      }
+    }
+  }, 80);
+}
+
+function floatHearts() {
+  const ems = ["💖","💕","💗","💓","💘","🩷"];
+  for(let i=0;i<12;i++){
+    const el = document.createElement("div");
+    el.className = "heart-fly";
+    el.textContent = ems[Math.floor(Math.random()*ems.length)];
+    el.style.left  = (20+Math.random()*60)+"vw";
+    el.style.bottom = "60px";
+    el.style.animationDuration = (2+Math.random()*2)+"s";
+    el.style.animationDelay   = (Math.random()*0.8)+"s";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),4000);
+  }
+}
+
+// ===== FINAL =====
+function startFinal() {
+  boom(60);
+  floatHearts();
+  typeIt(FINAL_MSG);
+  setTimeout(()=>launchConfetti(), 300);
+}
+
+function typeIt(txt) {
+  const el = document.getElementById("finalTxt");
+  el.textContent = "";
+  let i=0;
+  const iv = setInterval(()=>{
+    if(i>=txt.length){ clearInterval(iv); return; }
+    el.textContent += txt[i];
+    i++;
+  }, 45);
+}
+
+function launchConfetti() {
+  const colors = ["#f4bbe9","#70d4ba","#95C5f9","#bdb4f1","#fcf299","#e7847f","white"];
+  for(let i=0;i<80;i++){
+    const c = document.createElement("div");
+    c.className = "confetti-piece";
+    c.style.background = colors[Math.floor(Math.random()*colors.length)];
+    c.style.left  = Math.random()*100+"vw";
+    c.style.top   = "-20px";
+    c.style.width  = (6+Math.random()*10)+"px";
+    c.style.height = (6+Math.random()*10)+"px";
+    c.style.borderRadius = Math.random()>0.5?"50%":"2px";
+    c.style.animationDuration = (2+Math.random()*3)+"s";
+    c.style.animationDelay    = (Math.random()*2)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(), 6000);
+  }
+}
+
+// ===== UTILS =====
+function boom(count=30) {
+  const ems = ["💖","✨","🌸","🍀","⭐","💫","🌟","💕"];
+  for(let i=0;i<count;i++){
+    const h = document.createElement("div");
+    h.className = "heart-fly";
+    h.textContent = ems[Math.floor(Math.random()*ems.length)];
+    h.style.left   = Math.random()*100+"vw";
+    h.style.bottom = Math.random()*40+"%";
+    h.style.fontSize = (16+Math.random()*20)+"px";
+    h.style.animationDuration = (1.5+Math.random()*2.5)+"s";
+    h.style.animationDelay    = (Math.random()*1.2)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+  }
+}
+
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"),2800);
+}
+
+function toggleMusic() {
+  const p  = document.getElementById("player");
+  const b  = document.getElementById("music-btn");
+  musicOn  = !musicOn;
+  if(musicOn) { p.play().catch(()=>{}); b.textContent="⏸️"; }
+  else        { p.pause(); b.textContent="🎵"; }
+}
+
+function replay() {
+  pin = "";
+  gameScore = 0;
+  spinCount = 0;
+  wrongCount = 0;
+  noBtnEscape = false;
+  const noBtn = document.getElementById("noBtn");
+  noBtn.classList.remove("running-away");
+  noBtn.style.left = noBtn.style.top = "";
+  noBtn.textContent = "😒 เหนื่อยแต่ไม่อยากบอกใคร...";
+  document.getElementById("spinBtn").style.display = "inline-block";
+  document.getElementById("nextBtn").style.display = "none";
+  document.getElementById("gachaResult").style.display = "none";
+  document.getElementById("gachaIcon").classList.remove("spinning");
+  document.getElementById("wrongHint").textContent = "";
+  updateDots();
+  go(1);
+  showToast("🔄 ให้แค่คนน่ารักเล่นแบร ่่ ่ ่่ ่ ่่ ");
+}
+</script>
+</body>
+</html>
