@@ -1,1075 +1,1510 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌸 Ghibli pew pew 🍀</title>
-<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Nunito:wght@400;700;800;900&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-lavender: #bdb4f1;
-  --mint: #70d4ba;
-  --sky: #95C5f9;
-  --sakura: #f4bbe9;
-  --rose: #e7847f;
-  --yellow: #fcf299;
-  --cream: #f5f2d1;
-  --text: #6285e8;
-  --purple: #a991f7;
-  --peach: #ffb8a0;
-  --soft-white: rgba(255,255,255,0.85);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ง้อจินแบบว้าว ๆ 💚 From เค้า</title>
 
-* { margin:0; padding:0; box-sizing:border-box; }
+  <!-- ใส่เพลง: วางไฟล์เพลงไว้โฟลเดอร์เดียวกับไฟล์นี้ แล้วตั้งชื่อ love-song.mp3 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-body {
-  font-family: 'Nunito', 'Mitr', sans-serif;
-  min-height:100vh;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='24' font-size='24'%3E🌸%3C/text%3E%3C/svg%3E") 16 16, auto;
-}
+  <style>
+    :root {
+      --mint: #b8ffe8;
+      --mint-2: #ddfff3;
+      --mint-3: #7ee8c6;
+      --green: #23b889;
+      --deep: #174f45;
+      --pink: #ff9fd2;
+      --pink-2: #ffe4f2;
+      --cream: #fff8da;
+      --yellow: #fff0a7;
+      --white: #ffffff;
+      --glass: rgba(255,255,255,.68);
+      --line: rgba(255,255,255,.85);
+      --shadow: 0 28px 90px rgba(31, 132, 102, .20);
+      --shadow-soft: 0 16px 40px rgba(47,184,135,.14);
+      --radius: 34px;
+    }
 
-/* ===== ANIMATED BACKGROUND ===== */
-.bg-wrap {
-  position:fixed; inset:0; z-index:0;
-  background: linear-gradient(135deg, #bdb4f1 0%, #f4bbe9 25%, #95C5f9 50%, #70d4ba 75%, #fcf299 100%);
-  background-size:400% 400%;
-  animation: gradShift 8s ease infinite;
-}
-@keyframes gradShift {
-  0%   { background-position:0% 50%; }
-  50%  { background-position:100% 50%; }
-  100% { background-position:0% 50%; }
-}
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-/* ===== FLOATING ORBS ===== */
-.orbs { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
-.orb {
-  position:absolute; border-radius:50%;
-  filter:blur(60px); opacity:0.45;
-  animation: orbFloat linear infinite;
-}
-.orb:nth-child(1)  { width:280px;height:280px;background:#bdb4f1;left:5%;top:10%;  animation-duration:14s; }
-.orb:nth-child(2)  { width:200px;height:200px;background:#f4bbe9;left:70%;top:5%;  animation-duration:18s;animation-delay:-4s; }
-.orb:nth-child(3)  { width:320px;height:320px;background:#70d4ba;left:30%;top:60%; animation-duration:22s;animation-delay:-8s; }
-.orb:nth-child(4)  { width:150px;height:150px;background:#fcf299;left:80%;top:70%; animation-duration:12s;animation-delay:-2s; }
-.orb:nth-child(5)  { width:250px;height:250px;background:#95C5f9;left:-5%;top:50%; animation-duration:16s;animation-delay:-6s; }
-@keyframes orbFloat {
-  0%   { transform:translateY(0) scale(1) rotate(0deg); }
-  33%  { transform:translateY(-40px) scale(1.1) rotate(10deg); }
-  66%  { transform:translateY(20px) scale(0.95) rotate(-5deg); }
-  100% { transform:translateY(0) scale(1) rotate(0deg); }
-}
+    html { scroll-behavior: smooth; }
 
-/* ===== FLOATING EMOJIS BACKGROUND ===== */
-.float-ems { position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden; }
-.fem {
-  position:absolute;font-size:28px;
-  animation: rainDown linear infinite;
-  opacity:0.35;
-}
-@keyframes rainDown {
-  0%   { transform:translateY(-60px) rotate(0deg); opacity:0; }
-  10%  { opacity:0.35; }
-  90%  { opacity:0.35; }
-  100% { transform:translateY(110vh) rotate(360deg); opacity:0; }
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Mali", cursive;
+      color: var(--deep);
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255,159,210,.55), transparent 24%),
+        radial-gradient(circle at 88% 8%, rgba(255,240,167,.80), transparent 27%),
+        radial-gradient(circle at 48% 98%, rgba(126,232,198,.78), transparent 38%),
+        linear-gradient(135deg, #f3fff9 0%, #d9fff1 45%, #fff5fb 100%);
+    }
 
-/* ===== SPARKLE SYSTEM ===== */
-.sparkle-layer { position:fixed;inset:0;z-index:3;pointer-events:none; }
-.spark {
-  position:absolute; width:8px; height:8px;
-  border-radius:50%; background:white;
-  animation:sparkPop 1.2s ease forwards;
-  pointer-events:none;
-}
-@keyframes sparkPop {
-  0%   { transform:scale(0) rotate(0deg); opacity:1; }
-  50%  { transform:scale(1.5) rotate(180deg); opacity:0.8; }
-  100% { transform:scale(0) rotate(360deg); opacity:0; }
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.30) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.30) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+    }
 
-/* ===== MAIN CARD ===== */
-.card {
-  position:relative; z-index:10;
-  width:92%; max-width:430px;
-  background:rgba(255,255,255,0.78);
-  backdrop-filter:blur(20px);
-  border-radius:44px;
-  border:6px solid rgba(255,255,255,0.95);
-  padding:32px 28px;
-  text-align:center;
-  box-shadow: 0 30px 80px rgba(100,80,180,0.15), 0 0 0 1px rgba(255,255,255,0.5) inset, 0 8px 32px rgba(255,255,255,0.6) inset;
-  overflow:hidden;
-}
-.card::before {
-  content:'';
-  position:absolute; inset:0;
-  background: radial-gradient(ellipse at 20% 20%, rgba(255,255,255,0.6) 0%, transparent 60%);
-  border-radius:inherit; pointer-events:none;
-}
+    .aurora {
+      position: fixed;
+      inset: -30%;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,159,210,.35), transparent 26%),
+        radial-gradient(circle at 78% 18%, rgba(255,240,167,.42), transparent 26%),
+        radial-gradient(circle at 54% 78%, rgba(126,232,198,.42), transparent 30%);
+      filter: blur(18px);
+      animation: auroraMove 12s ease-in-out infinite alternate;
+    }
 
-/* ===== STAGES ===== */
-.stage { display:none; }
-.stage.active { display:block; animation:popIn 0.6s cubic-bezier(0.34,1.56,0.64,1); }
-@keyframes popIn {
-  from { opacity:0; transform:scale(0.6) translateY(30px); }
-  to   { opacity:1; transform:scale(1) translateY(0); }
-}
+    @keyframes auroraMove {
+      from { transform: translate(-2%, -1%) rotate(0deg) scale(1); }
+      to { transform: translate(2%, 2%) rotate(8deg) scale(1.08); }
+    }
 
-/* ===== HEADINGS ===== */
-.stage-title {
-  font-size:1.55rem; font-weight:900;
-  margin-bottom:6px;
-  text-shadow:0 2px 8px rgba(255,255,255,0.8);
-}
-.stage-sub {
-  font-size:0.82rem; color:#999;
-  margin-bottom:18px; line-height:1.5;
-}
+    .float-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
 
-/* ===== PROGRESS BAR ===== */
-.prog-wrap {
-  width:100%; height:10px;
-  background:rgba(0,0,0,0.05);
-  border-radius:99px; overflow:hidden;
-  margin-bottom:20px;
-}
-.prog-bar {
-  height:100%;
-  background:linear-gradient(90deg, var(--mint), var(--sky), var(--sakura));
-  border-radius:99px;
-  transition:width 0.8s cubic-bezier(0.34,1.56,0.64,1);
-  position:relative; overflow:hidden;
-}
-.prog-bar::after {
-  content:'';
-  position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);
-  animation:shimmer 2s linear infinite;
-}
-@keyframes shimmer { to { left:200%; } }
+    .bubble {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(255,255,255,.75);
+      box-shadow: var(--shadow-soft);
+      animation: floaty linear infinite;
+      font-size: 28px;
+      backdrop-filter: blur(8px);
+    }
 
-/* ===== STAGE BADGE ===== */
-.stage-badge {
-  display:inline-block;
-  background:linear-gradient(135deg, var(--purple), var(--sky));
-  color:white; font-size:0.72rem; font-weight:800;
-  padding:4px 14px; border-radius:99px;
-  margin-bottom:14px;
-  box-shadow:0 4px 12px rgba(169,145,247,0.4);
-  letter-spacing:1px; text-transform:uppercase;
-}
+    .bubble:nth-child(1) { left: 4%; animation-duration: 14s; animation-delay: -4s; }
+    .bubble:nth-child(2) { left: 17%; animation-duration: 18s; animation-delay: -9s; }
+    .bubble:nth-child(3) { left: 36%; animation-duration: 16s; animation-delay: -2s; }
+    .bubble:nth-child(4) { left: 58%; animation-duration: 20s; animation-delay: -11s; }
+    .bubble:nth-child(5) { left: 78%; animation-duration: 15s; animation-delay: -7s; }
+    .bubble:nth-child(6) { left: 91%; animation-duration: 19s; animation-delay: -12s; }
 
-/* ===== ST1: KEYPAD ===== */
-.dots { display:flex;justify-content:center;gap:14px;margin:16px 0 22px; }
-.dot {
-  width:18px;height:18px;border-radius:50%;
-  background:rgba(0,0,0,0.08);
-  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
-  border:3px solid rgba(255,255,255,0.8);
-}
-.dot.filled {
-  background:var(--rose);
-  transform:scale(1.4);
-  box-shadow:0 0 12px rgba(231,132,127,0.6);
-}
-.dot.wrong {
-  background:#ff4444;
-  animation:shake 0.4s ease;
-}
-@keyframes shake {
-  0%,100% { transform:translateX(0); }
-  20%,60%  { transform:translateX(-8px); }
-  40%,80%  { transform:translateX(8px); }
-}
+    @keyframes floaty {
+      0% { transform: translateY(112vh) rotate(0deg) scale(.72); opacity: 0; }
+      10%, 88% { opacity: 1; }
+      100% { transform: translateY(-20vh) rotate(360deg) scale(1.08); opacity: 0; }
+    }
 
-.keypad {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:12px; margin:0 auto; max-width:280px;
-}
-.key {
-  width:72px;height:72px;border-radius:50%;
-  border:none;background:white;
-  font-size:1.25rem;font-weight:800;color:var(--text);
-  cursor:pointer; margin:0 auto;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 0 var(--sakura), 0 8px 20px rgba(0,0,0,0.06);
-  transition:all 0.15s;
-  position:relative; overflow:hidden;
-}
-.key::before {
-  content:'';
-  position:absolute;inset:0;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%, rgba(255,255,255,0.8), transparent 60%);
-}
-.key:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 9px 0 var(--sakura), 0 12px 24px rgba(0,0,0,0.1); }
-.key:active { transform:translateY(6px); box-shadow:0 0px 0 var(--sakura); }
-.key-del { background:rgba(231,132,127,0.15); color:var(--rose); }
-.key-ok { background:linear-gradient(135deg,var(--mint),#5bc8ad); color:white; box-shadow:0 6px 0 #4aaa90, 0 8px 20px rgba(112,212,186,0.3); }
-.key-ok:hover { box-shadow:0 9px 0 #4aaa90, 0 12px 24px rgba(112,212,186,0.4); }
+    .screen {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
 
-.hint-text {
-  font-size:0.7rem; color:#bbb;
-  margin-top:14px; font-style:italic;
-}
+    .screen.active { display: flex; }
 
-/* ===== ST2: ENVELOPE ===== */
-.envelope-anim {
-  font-size:100px;
-  display:inline-block;
-  cursor:pointer;
-  animation:envBeat 2s infinite;
-  transition:transform 0.3s;
-  filter:drop-shadow(0 10px 20px rgba(244,187,233,0.5));
-}
-@keyframes envBeat {
-  0%,100% { transform:scale(1) rotate(-3deg); }
-  25%     { transform:scale(1.08) rotate(3deg); }
-  50%     { transform:scale(1.12) rotate(-2deg); }
-  75%     { transform:scale(1.05) rotate(2deg); }
-}
-.envelope-anim:hover { transform:scale(1.2) rotate(10deg) !important; animation-play-state:paused; }
+    .lock-card, .app-shell {
+      width: min(1080px, 100%);
+      border-radius: var(--radius);
+      background: var(--glass);
+      border: 1.5px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+      position: relative;
+    }
 
-.letter-preview {
-  background:white; border-radius:20px;
-  padding:16px; margin:14px 0;
-  font-size:0.85rem; line-height:1.7;
-  color:#888; font-style:italic;
-  border:2px dashed var(--sakura);
-  text-align:left;
-}
-.letter-preview span { filter:blur(4px); }
+    .lock-card {
+      width: min(560px, 100%);
+      padding: 36px 30px 28px;
+      text-align: center;
+      isolation: isolate;
+      transform-style: preserve-3d;
+      animation: cardIn .75s cubic-bezier(.2,.9,.2,1) both;
+    }
 
-/* ===== ST3: QUIZ ===== */
-.quiz-q {
-  background:linear-gradient(135deg, var(--cream), var(--yellow));
-  border-radius:20px; padding:16px;
-  margin-bottom:16px; font-weight:700;
-  font-size:1rem; color:var(--text);
-  border:3px solid rgba(255,255,255,0.8);
-  box-shadow:0 4px 16px rgba(252,242,153,0.4);
-}
-.quiz-btn {
-  width:100%; padding:14px 18px;
-  margin:7px 0; border:none; border-radius:22px;
-  background:white; color:var(--text);
-  font-size:0.9rem; font-weight:700;
-  cursor:pointer; text-align:left;
-  box-shadow:0 4px 0 #eee, 0 6px 16px rgba(0,0,0,0.05);
-  transition:all 0.25s;
-  font-family:'Nunito','Mitr',sans-serif;
-  position:relative; overflow:hidden;
-}
-.quiz-btn::before {
-  content:'';
-  position:absolute;left:0;top:0;width:5px;height:100%;
-  background:linear-gradient(180deg,var(--mint),var(--sky));
-  border-radius:5px 0 0 5px;
-  opacity:0; transition:opacity 0.2s;
-}
-.quiz-btn:hover {
-  background:linear-gradient(135deg,#f8f4ff,var(--cream));
-  transform:translateX(4px) scale(1.01);
-  box-shadow:0 6px 0 #ddd, 0 10px 20px rgba(0,0,0,0.08);
-}
-.quiz-btn:hover::before { opacity:1; }
-.quiz-btn-no {
-  background:linear-gradient(135deg,rgba(231,132,127,0.1),rgba(244,187,233,0.15));
-  color:var(--rose);
-}
-.quiz-btn-no.running-away {
-  position:fixed !important;
-  transition:top 0.3s cubic-bezier(0.34,1.56,0.64,1), left 0.3s cubic-bezier(0.34,1.56,0.64,1) !important;
-  z-index:999; width:220px;
-  box-shadow:0 8px 24px rgba(231,132,127,0.3);
-}
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(24px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
 
-/* ===== ST4: CLOVER GAME ===== */
-.score-bar {
-  display:flex; align-items:center; justify-content:space-between;
-  background:rgba(255,255,255,0.6); border-radius:16px;
-  padding:10px 16px; margin-bottom:12px;
-  border:2px solid rgba(255,255,255,0.8);
-}
-.score-num {
-  font-size:1.8rem; font-weight:900; color:var(--mint);
-  text-shadow:0 2px 8px rgba(112,212,186,0.4);
-}
-.score-label { font-size:0.75rem; color:#aaa; font-weight:700; }
-.mini-prog {
-  flex:1; height:8px; background:rgba(0,0,0,0.05);
-  border-radius:99px; overflow:hidden; margin:0 12px;
-}
-.mini-prog-fill {
-  height:100%;
-  background:linear-gradient(90deg,var(--mint),var(--sky));
-  border-radius:99px;
-  transition:width 0.4s cubic-bezier(0.34,1.56,0.64,1);
-  width:0%;
-}
+    .lock-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -1;
+      background:
+        conic-gradient(from 180deg, transparent, rgba(255,159,210,.45), rgba(126,232,198,.55), rgba(255,240,167,.45), transparent);
+      filter: blur(24px);
+      opacity: .85;
+      animation: spinSoft 8s linear infinite;
+    }
 
-#game-box {
-  height:240px;
-  background:linear-gradient(180deg,rgba(149,197,249,0.2),rgba(112,212,186,0.15));
-  border-radius:24px;
-  border:4px dashed var(--mint);
-  position:relative; overflow:hidden;
-  cursor:crosshair;
-}
-#game-box::before {
-  content:'🌿🌱🌿🌱🌿🌱🌿🌱🌿';
-  position:absolute; bottom:0; left:0; right:0;
-  font-size:20px; text-align:center; letter-spacing:2px;
-  opacity:0.4;
-}
+    .sparkle-ring {
+      position: absolute;
+      inset: 16px;
+      border-radius: 30px;
+      border: 2px dashed rgba(35,184,137,.22);
+      pointer-events: none;
+      animation: spinSoft 22s linear infinite;
+    }
 
-.clover-item {
-  position:absolute; font-size:32px;
-  cursor:pointer; user-select:none;
-  animation:wobble 0.5s ease infinite alternate;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-  transition:transform 0.1s;
-}
-.clover-item:hover { transform:scale(1.3) rotate(20deg); }
-.clover-item:active { transform:scale(0.8); }
-@keyframes wobble {
-  from { transform:rotate(-5deg) scale(1); }
-  to   { transform:rotate(5deg) scale(1.05); }
-}
+    @keyframes spinSoft { to { transform: rotate(360deg); } }
 
-.combo-text {
-  position:absolute; font-size:1.4rem; font-weight:900;
-  color:white; text-shadow:0 2px 6px rgba(0,0,0,0.2);
-  pointer-events:none; z-index:10;
-  animation:comboFloat 0.8s ease-out forwards;
-}
-@keyframes comboFloat {
-  from { opacity:1; transform:translateY(0) scale(1); }
-  to   { opacity:0; transform:translateY(-60px) scale(1.4); }
-}
+    .lock-icon {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 34px;
+      background: linear-gradient(135deg, var(--mint), #fff, var(--pink-2));
+      box-shadow: 0 20px 55px rgba(47,184,135,.22);
+      font-size: 58px;
+      animation: jelly 1.9s ease-in-out infinite;
+      position: relative;
+    }
 
-.game-tip {
-  font-size:0.72rem; color:#bbb; margin-top:8px;
-  animation:tipBlink 2s infinite;
-}
-@keyframes tipBlink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .lock-icon::after {
+      content: "จิน";
+      position: absolute;
+      right: -16px;
+      top: -9px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: white;
+      color: var(--green);
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+      transform: rotate(9deg);
+    }
 
-/* ===== ST5: GACHA ===== */
-.gacha-machine {
-  position:relative; display:inline-block;
-  margin:10px 0;
-}
-.gacha-icon {
-  font-size:80px;
-  display:inline-block;
-  animation:gachaIdle 3s ease-in-out infinite;
-  filter:drop-shadow(0 15px 25px rgba(169,145,247,0.4));
-}
-@keyframes gachaIdle {
-  0%,100% { transform:translateY(0) rotate(-3deg) scale(1); }
-  50%      { transform:translateY(-12px) rotate(3deg) scale(1.04); }
-}
-.gacha-icon.spinning {
-  animation:gachaSpin 0.1s linear infinite;
-}
-@keyframes gachaSpin {
-  from { transform:rotateY(0) scale(1.1); }
-  to   { transform:rotateY(360deg) scale(1.1); }
-}
+    @keyframes jelly {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      45% { transform: translateY(-10px) rotate(-4deg); }
+      65% { transform: translateY(-5px) rotate(4deg); }
+    }
 
-.gacha-result {
-  background:linear-gradient(135deg,#fff5fb,#f0f8ff);
-  border:3px solid var(--sakura); border-radius:24px;
-  padding:18px; margin:14px 0;
-  font-size:1.1rem; font-weight:800; color:var(--text);
-  display:none;
-  animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1);
-  box-shadow:0 8px 24px rgba(244,187,233,0.3);
-}
-.gacha-result .result-emoji { font-size:3rem; display:block; margin-bottom:8px; }
-.gacha-rarity {
-  display:inline-block; padding:3px 12px;
-  border-radius:99px; font-size:0.7rem; font-weight:900;
-  margin-bottom:8px; letter-spacing:1px;
-}
-.rarity-ssr { background:linear-gradient(135deg,#ffd700,#ff8c00); color:white; }
-.rarity-sr  { background:linear-gradient(135deg,#a991f7,#7b68ee); color:white; }
-.rarity-r   { background:linear-gradient(135deg,var(--mint),var(--sky)); color:white; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: "Itim", "Mali", cursive; }
 
-/* ===== ST6: FINAL ===== */
-.final-wrap {
-  position:relative;
-}
-.final-img {
-  width:100px; height:100px;
-  animation:finalFloat 3s ease-in-out infinite;
-  filter:drop-shadow(0 10px 20px rgba(244,187,233,0.5));
-}
-@keyframes finalFloat {
-  0%,100% { transform:translateY(0) rotate(-5deg); }
-  50%      { transform:translateY(-18px) rotate(5deg); }
-}
-.final-letter {
-  background:linear-gradient(135deg,#fffef0,#fff5fb);
-  border:3px solid var(--sakura); border-radius:28px;
-  padding:22px 18px; margin:14px 0;
-  text-align:left; position:relative; overflow:hidden;
-}
-.final-letter::before {
-  content:'🌸';
-  position:absolute; top:-10px; right:-10px;
-  font-size:60px; opacity:0.12; transform:rotate(20deg);
-}
-.final-letter p {
-  line-height:1.9; font-size:0.9rem;
-  color:#666; font-weight:500;
-}
-.final-sig {
-  margin-top:14px; font-weight:900;
-  background:linear-gradient(135deg,var(--mint),var(--sky),var(--sakura));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  font-size:1rem;
-}
-.star-rain {
-  position:fixed; inset:0; pointer-events:none; z-index:5;
-}
+    .title {
+      font-size: clamp(2.2rem, 6vw, 4.6rem);
+      line-height: .98;
+      margin-bottom: 12px;
+      letter-spacing: -.02em;
+    }
 
-/* ===== BUTTONS ===== */
-.btn-main {
-  background:linear-gradient(135deg,var(--mint),#5bc8ad);
-  color:white; padding:14px 32px;
-  border-radius:50px; border:none;
-  cursor:pointer; font-weight:800;
-  font-size:0.95rem;
-  font-family:'Nunito','Mitr',sans-serif;
-  margin-top:16px;
-  box-shadow:0 8px 0 #4aaa90, 0 12px 24px rgba(112,212,186,0.35);
-  transition:all 0.2s;
-  position:relative; overflow:hidden;
-}
-.btn-main::before {
-  content:'';
-  position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
-  animation:btnShine 3s linear infinite;
-}
-@keyframes btnShine { to { left:200%; } }
-.btn-main:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 11px 0 #4aaa90, 0 16px 28px rgba(112,212,186,0.45); }
-.btn-main:active { transform:translateY(8px); box-shadow:0 0 0 #4aaa90; }
-.btn-rose {
-  background:linear-gradient(135deg,var(--rose),#d96e6a);
-  box-shadow:0 8px 0 #c05a55, 0 12px 24px rgba(231,132,127,0.35);
-}
-.btn-rose:hover { box-shadow:0 11px 0 #c05a55, 0 16px 28px rgba(231,132,127,0.45); }
-.btn-rose:active { box-shadow:0 0 0 #c05a55; }
-.btn-purple {
-  background:linear-gradient(135deg,var(--purple),#8b6fd4);
-  box-shadow:0 8px 0 #7459b8, 0 12px 24px rgba(169,145,247,0.35);
-}
-.btn-purple:hover { box-shadow:0 11px 0 #7459b8, 0 16px 28px rgba(169,145,247,0.45); }
-.btn-purple:active { box-shadow:0 0 0 #7459b8; }
+    .gradient-text {
+      background: linear-gradient(90deg, var(--green), #ff6faf, #e3a300, var(--green));
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shineText 4s linear infinite;
+    }
 
-/* ===== MUSIC BTN ===== */
-#music-btn {
-  position:fixed; top:18px; right:18px;
-  width:52px; height:52px; border-radius:50%;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(12px);
-  border:3px solid rgba(255,255,255,0.9);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer; font-size:22px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.1);
-  z-index:100; transition:all 0.3s;
-  animation:musicPulse 2s infinite;
-}
-@keyframes musicPulse {
-  0%,100% { box-shadow:0 4px 16px rgba(0,0,0,0.1), 0 0 0 0 rgba(112,212,186,0.4); }
-  50%      { box-shadow:0 4px 16px rgba(0,0,0,0.1), 0 0 0 10px rgba(112,212,186,0); }
-}
-#music-btn:hover { transform:scale(1.1) rotate(15deg); }
+    @keyframes shineText { to { background-position: 250% center; } }
 
-/* ===== HELPER TOAST ===== */
-.toast {
-  position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
-  background:rgba(255,255,255,0.9); backdrop-filter:blur(12px);
-  padding:12px 24px; border-radius:50px;
-  font-size:0.85rem; font-weight:700; color:var(--text);
-  box-shadow:0 8px 24px rgba(0,0,0,0.1);
-  z-index:200; opacity:0; transition:opacity 0.4s;
-  border:2px solid rgba(255,255,255,0.9);
-  white-space:nowrap;
-}
-.toast.show { opacity:1; }
+    .subtitle {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      opacity: .88;
+      margin-bottom: 20px;
+    }
 
-/* ===== CONFETTI ===== */
-.confetti-piece {
-  position:fixed; width:10px; height:10px;
-  border-radius:2px;
-  animation:confettiFall linear forwards;
-  pointer-events:none; z-index:50;
-}
-@keyframes confettiFall {
-  0%   { transform:translateY(-20px) rotate(0) scaleX(1); opacity:1; }
-  100% { transform:translateY(110vh) rotate(720deg) scaleX(-1); opacity:0; }
-}
+    .hint-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(255,255,255,.9);
+      color: var(--green);
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(47,184,135,.10);
+      margin-bottom: 10px;
+    }
 
-/* ===== HEART FLOAT ===== */
-.heart-fly {
-  position:fixed; font-size:24px;
-  pointer-events:none; z-index:50;
-  animation:heartUp linear forwards;
-}
-@keyframes heartUp {
-  0%   { transform:translateY(0) rotate(0) scale(0); opacity:0; }
-  20%  { opacity:1; transform:scale(1.2); }
-  100% { transform:translateY(-120vh) rotate(30deg) scale(0.5); opacity:0; }
-}
+    .pin-display {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 18px 0 18px;
+    }
 
-/* ===== CLICK STARS ===== */
-.click-star {
-  position:fixed; font-size:20px;
-  pointer-events:none; z-index:50;
-  animation:starBurst 0.6s ease-out forwards;
-}
-@keyframes starBurst {
-  0%   { transform:scale(0) rotate(0); opacity:1; }
-  50%  { transform:scale(1.8) rotate(180deg); opacity:0.8; }
-  100% { transform:scale(0) rotate(360deg); opacity:0; }
-}
+    .pin-dot {
+      width: 58px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: rgba(255,255,255,.80);
+      border: 1.5px solid rgba(47,184,135,.18);
+      box-shadow: 0 13px 28px rgba(47,184,135,.12);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--green);
+      transition: .22s ease;
+    }
 
-/* ===== SCROLLING TICKER ===== */
-.ticker-wrap {
-  position:fixed; bottom:0; left:0; right:0; z-index:20;
-  background:rgba(255,255,255,0.6);
-  backdrop-filter:blur(8px);
-  border-top:2px solid rgba(255,255,255,0.8);
-  overflow:hidden; height:36px; display:flex; align-items:center;
-}
-.ticker-track {
-  display:flex; white-space:nowrap;
-  animation:tickerRun 30s linear infinite;
-  font-size:0.78rem; font-weight:700; color:var(--text); gap:0;
-}
-@keyframes tickerRun { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .pin-dot.filled {
+      background: linear-gradient(135deg, #fff, var(--mint), #fff0f8);
+      transform: translateY(-6px) rotate(-4deg);
+      box-shadow: 0 18px 38px rgba(47,184,135,.18);
+    }
 
-/* ===== MOBILE ===== */
-@media (max-width:420px) {
-  .card { padding:24px 18px; border-radius:36px; }
-  .key  { width:60px; height:60px; font-size:1.1rem; }
-}
-</style>
+    .keypad {
+      width: min(360px, 100%);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 0 auto;
+    }
+
+    button {
+      border: 0;
+      font-family: inherit;
+      font-weight: 700;
+      color: var(--deep);
+      cursor: pointer;
+      border-radius: 22px;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, var(--mint), var(--yellow));
+      box-shadow: 0 14px 32px rgba(47,184,135,.16);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-110%) skewX(-18deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.72), transparent);
+      transition: transform .6s ease;
+    }
+
+    button:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 18px 44px rgba(47,184,135,.22); }
+    button:hover::before { transform: translateX(110%) skewX(-18deg); }
+    button:active { transform: translateY(0) scale(.98); }
+
+    .keypad button {
+      min-height: 62px;
+      font-size: 1.18rem;
+      background: rgba(255,255,255,.74);
+      border: 1.5px solid rgba(255,255,255,.88);
+      box-shadow: 0 14px 30px rgba(47,184,135,.13);
+    }
+
+    .keypad button:hover {
+      background: linear-gradient(135deg, #fff, var(--mint), #fff0f8);
+    }
+
+    .key-special {
+      font-size: .94rem !important;
+      background: linear-gradient(135deg, #fff0f8, #ffffff) !important;
+    }
+
+    .error {
+      min-height: 28px;
+      margin-top: 16px;
+      color: #d94875;
+      font-weight: 700;
+      animation: shake .35s ease both;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+
+    .app-shell {
+      min-height: 730px;
+      display: grid;
+      grid-template-columns: 265px 1fr;
+      animation: cardIn .65s cubic-bezier(.2,.9,.2,1) both;
+    }
+
+    .sidebar {
+      padding: 26px;
+      background:
+        radial-gradient(circle at 20% 12%, rgba(255,159,210,.28), transparent 28%),
+        linear-gradient(180deg, rgba(185,246,223,.88), rgba(255,255,255,.55));
+      border-right: 1px solid rgba(255,255,255,.82);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 21px;
+      background: white;
+      font-size: 30px;
+      box-shadow: var(--shadow-soft);
+      animation: pulseSoft 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulseSoft {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .brand strong { display: block; font-size: 1.08rem; }
+    .brand span { display: block; font-size: .78rem; opacity: .76; }
+
+    .mini-status {
+      padding: 14px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(255,255,255,.82);
+      margin-bottom: 16px;
+      line-height: 1.65;
+      font-size: .88rem;
+    }
+
+    .nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .nav button {
+      width: 100%;
+      text-align: left;
+      background: rgba(255,255,255,.58);
+      box-shadow: none;
+      border: 1px solid rgba(255,255,255,.75);
+      padding: 13px 14px;
+    }
+
+    .nav button.active-tab {
+      background: linear-gradient(135deg, #fff, var(--mint), #fff6fb);
+      box-shadow: 0 14px 34px rgba(47,184,135,.16);
+      transform: translateX(5px);
+    }
+
+    .content {
+      padding: 34px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .page { display: none; animation: fadeUp .45s ease both; }
+    .page.active-page { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .music-btn {
+      position: absolute;
+      right: 28px;
+      top: 22px;
+      z-index: 20;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(255,255,255,.90);
+      box-shadow: 0 10px 28px rgba(47,184,135,.14);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 430px;
+      padding: 42px;
+      border-radius: 32px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(255,159,210,.45), transparent 29%),
+        radial-gradient(circle at 24% 82%, rgba(255,240,167,.60), transparent 34%),
+        linear-gradient(135deg, rgba(255,255,255,.88), rgba(185,246,223,.80));
+      border: 1px solid rgba(255,255,255,.86);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.40), var(--shadow-soft);
+    }
+
+    .hero::after {
+      content: "🐷";
+      position: absolute;
+      right: 18px;
+      bottom: -24px;
+      font-size: clamp(8rem, 21vw, 13.5rem);
+      opacity: .17;
+      transform: rotate(-10deg);
+      filter: drop-shadow(0 20px 16px rgba(47,184,135,.15));
+    }
+
+    .hero .sparkle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 18px 7px rgba(255,255,255,.75);
+      animation: twinkle 1.8s ease-in-out infinite;
+    }
+
+    .hero .sparkle.s1 { right: 26%; top: 18%; }
+    .hero .sparkle.s2 { right: 15%; top: 43%; animation-delay: .45s; }
+    .hero .sparkle.s3 { left: 15%; bottom: 18%; animation-delay: .8s; }
+
+    @keyframes twinkle {
+      0%,100% { transform: scale(.7); opacity: .45; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.9);
+      margin-bottom: 14px;
+      font-weight: 700;
+      color: var(--green);
+      box-shadow: 0 10px 26px rgba(47,184,135,.12);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5.6rem);
+      line-height: .92;
+      margin-bottom: 18px;
+      max-width: 680px;
+    }
+
+    .hero p {
+      max-width: 610px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .heart-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .heart-chip {
+      padding: 11px 15px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid rgba(255,255,255,.85);
+      box-shadow: 0 10px 26px rgba(47,184,135,.12);
+      animation: wiggle 2.5s ease-in-out infinite;
+    }
+
+    .heart-chip:nth-child(2) { animation-delay: .25s; }
+    .heart-chip:nth-child(3) { animation-delay: .5s; }
+    .heart-chip:nth-child(4) { animation-delay: .75s; }
+    .heart-chip:nth-child(5) { animation-delay: 1s; }
+
+    @keyframes wiggle {
+      0%,100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg) translateY(-4px); }
+    }
+
+    .wow-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .wow-card, .card, .letter, .coupon, .final-box, .jar-card {
+      border-radius: 28px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(255,255,255,.86);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .wow-card {
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      transition: .25s ease;
+    }
+
+    .wow-card:hover { transform: translateY(-6px) rotate(-1deg); }
+
+    .wow-card::after {
+      content: "";
+      position: absolute;
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      right: -34px;
+      bottom: -34px;
+      background: rgba(185,246,223,.55);
+    }
+
+    .wow-card strong { display: block; font-size: 1.02rem; margin-bottom: 4px; }
+    .wow-card span { opacity: .8; font-size: .9rem; line-height: 1.65; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-title h2 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.7rem); }
+
+    .letter {
+      padding: 34px;
+      line-height: 2;
+      font-size: 1.05rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .letter::before {
+      content: "💌";
+      position: absolute;
+      right: 24px;
+      top: 18px;
+      font-size: 86px;
+      opacity: .12;
+      transform: rotate(12deg);
+    }
+
+    .letter b { color: var(--green); }
+
+    .open-letter-btn { margin-top: 16px; }
+    .secret-note {
+      display: none;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #fff, var(--pink-2));
+      border: 1px solid rgba(255,255,255,.85);
+      animation: fadeUp .35s ease both;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+    .secret-note.show { display: block; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card {
+      padding: 22px;
+      transition: .24s ease;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) rotateX(5deg) rotateY(-4deg);
+      box-shadow: 0 24px 60px rgba(47,184,135,.18);
+    }
+
+    .card .emoji { font-size: 40px; margin-bottom: 8px; }
+    .card h3 { margin-bottom: 8px; }
+    .card p { line-height: 1.75; opacity: .85; margin-bottom: 0; }
+
+    .game-box { display: grid; gap: 18px; }
+
+    .scorebar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: rgba(255,255,255,.68);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.8);
+    }
+
+    .game-area {
+      position: relative;
+      height: 390px;
+      border-radius: 30px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(255,255,255,.66), rgba(255,255,255,.66)),
+        radial-gradient(circle at 20% 20%, var(--yellow), transparent 22%),
+        radial-gradient(circle at 80% 80%, var(--pink), transparent 24%),
+        linear-gradient(135deg, var(--mint-2), #fff);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.35);
+    }
+
+    .target {
+      position: absolute;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: white;
+      font-size: 33px;
+      box-shadow: 0 14px 30px rgba(47,184,135,.18);
+      user-select: none;
+      animation: pop .22s ease both, targetDance .8s ease-in-out infinite alternate;
+      border: 1px solid rgba(255,255,255,.9);
+    }
+
+    @keyframes pop {
+      from { transform: scale(.2); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes targetDance {
+      from { translate: 0 0; }
+      to { translate: 0 -6px; }
+    }
+
+    .coupon-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .coupon {
+      position: relative;
+      padding: 24px;
+      min-height: 155px;
+      background: linear-gradient(135deg, white, var(--mint-2));
+      border: 2px dashed rgba(47,184,135,.38);
+      overflow: hidden;
+      transition: .25s ease;
+    }
+
+    .coupon:hover { transform: rotate(-1deg) translateY(-5px); }
+
+    .coupon::before {
+      content: "";
+      position: absolute;
+      left: -16px;
+      top: 50%;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #dffdf1;
+      transform: translateY(-50%);
+      box-shadow: calc(100vw) 0 0 #dffdf1;
+    }
+
+    .coupon::after {
+      content: "JIN";
+      position: absolute;
+      right: -12px;
+      bottom: -20px;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(47,184,135,.09);
+    }
+
+    .coupon h3 { margin-bottom: 8px; }
+    .coupon p { line-height: 1.7; margin-bottom: 0; }
+
+    .jar-card {
+      padding: 28px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(255,159,210,.28), transparent 28%),
+        rgba(255,255,255,.72);
+    }
+
+    .jar {
+      width: min(360px, 100%);
+      min-height: 250px;
+      margin: 10px auto 18px;
+      border-radius: 38px 38px 52px 52px;
+      border: 3px solid rgba(35,184,137,.30);
+      background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(185,246,223,.55));
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 12px 35px rgba(255,255,255,.8), var(--shadow-soft);
+    }
+
+    .jar::before {
+      content: "โหลใจอ่อน";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: white;
+      color: var(--green);
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .jar-heart {
+      position: absolute;
+      font-size: 28px;
+      animation: jarPop .45s ease both;
+    }
+
+    @keyframes jarPop {
+      from { transform: translateY(20px) scale(.5); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .final-box {
+      text-align: center;
+      padding: 44px 30px;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(255,159,210,.35), transparent 28%),
+        linear-gradient(135deg, rgba(255,255,255,.82), rgba(185,246,223,.76));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-box::after {
+      content: "ดีกันนะ";
+      position: absolute;
+      left: 50%;
+      bottom: -28px;
+      transform: translateX(-50%);
+      font-size: clamp(4rem, 14vw, 9rem);
+      font-weight: 700;
+      color: rgba(47,184,135,.07);
+      white-space: nowrap;
+    }
+
+    .big-pig {
+      font-size: 94px;
+      animation: jelly 1.8s ease-in-out infinite;
+    }
+
+    .love-meter {
+      width: min(520px, 100%);
+      height: 26px;
+      margin: 22px auto;
+      border-radius: 999px;
+      background: rgba(255,255,255,.82);
+      overflow: hidden;
+      border: 1px solid rgba(47,184,135,.16);
+      position: relative;
+      z-index: 1;
+    }
+
+    .love-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--mint-3), var(--pink), var(--yellow), var(--mint-3));
+      background-size: 220% auto;
+      transition: width 1.1s ease;
+      animation: shineBar 2s linear infinite;
+    }
+
+    @keyframes shineBar { to { background-position: 220% center; } }
+
+    .runaway-wrap {
+      min-height: 74px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+    }
+
+    .forgive-btn { z-index: 2; font-size: 1.05rem; }
+    .no-btn {
+      position: absolute;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(255,255,255,.90);
+      box-shadow: var(--shadow-soft);
+      transition: .18s ease;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%) translateY(30px);
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: 0 18px 42px rgba(47,184,135,.20);
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s ease;
+      z-index: 99;
+      font-weight: 700;
+      text-align: center;
+      max-width: calc(100vw - 28px);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 14px;
+      top: -20px;
+      border-radius: 4px;
+      z-index: 100;
+      animation: fall 1.9s linear forwards;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    @keyframes miniPop {
+      0% { transform: translateY(0) scale(.4) rotate(0deg); opacity: 0; }
+      35% { opacity: 1; }
+      100% { transform: translateY(-90px) scale(1.45) rotate(18deg); opacity: 0; }
+    }
+
+    .tap-heart {
+      position: fixed;
+      z-index: 98;
+      pointer-events: none;
+      font-size: 24px;
+      animation: miniPop .9s ease forwards;
+    }
+
+    @media (max-width: 860px) {
+      body { min-height: 100svh; }
+      .screen {
+        min-height: 100svh;
+        padding: 12px;
+        align-items: flex-start;
+      }
+      .lock-card {
+        margin-top: 8px;
+        padding: 24px 16px 18px;
+        border-radius: 28px;
+      }
+      .lock-icon {
+        width: 82px;
+        height: 82px;
+        border-radius: 26px;
+        font-size: 42px;
+      }
+      .lock-icon::after { font-size: 14px; right: -12px; }
+      .title { font-size: clamp(1.9rem, 10vw, 2.8rem); }
+      .subtitle { font-size: .9rem; line-height: 1.68; }
+      .pin-display { gap: 7px; margin: 14px 0; }
+      .pin-dot { width: 44px; height: 50px; border-radius: 17px; font-size: 1.15rem; }
+      .keypad { max-width: 340px; gap: 9px; }
+      .keypad button { min-height: 52px; padding: 10px 8px; border-radius: 19px; font-size: 1.02rem; }
+
+      .app-shell {
+        display: block;
+        width: 100%;
+        border-radius: 28px;
+        min-height: auto;
+      }
+      .sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        padding: 14px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.82);
+        backdrop-filter: blur(16px);
+      }
+      .brand { margin-bottom: 10px; }
+      .logo { width: 44px; height: 44px; border-radius: 16px; font-size: 24px; }
+      .brand strong { font-size: .96rem; }
+      .brand span { font-size: .72rem; }
+      .mini-status { display: none; }
+      .nav {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .nav::-webkit-scrollbar { display: none; }
+      .nav button {
+        width: auto;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        padding: 10px 13px;
+        border-radius: 999px;
+        font-size: .84rem;
+        text-align: center;
+      }
+      .nav button.active-tab { transform: translateY(-2px); }
+      .content {
+        padding: 62px 12px 18px;
+        overflow: visible;
+      }
+      .music-btn {
+        position: fixed;
+        top: auto;
+        right: 12px;
+        bottom: 12px;
+        padding: 10px 12px;
+        font-size: .82rem;
+        border-radius: 999px;
+      }
+      .hero {
+        min-height: auto;
+        padding: 24px 18px 132px;
+        border-radius: 26px;
+      }
+      .hero::after { right: 12px; bottom: -12px; font-size: 8rem; }
+      .hero h1 { font-size: clamp(2.2rem, 13vw, 3.4rem); }
+      .hero p { font-size: .94rem; line-height: 1.75; }
+      .pill { font-size: .82rem; }
+      .heart-chip { font-size: .84rem; padding: 9px 12px; }
+      .wow-row, .grid, .coupon-grid { grid-template-columns: 1fr; }
+      .wow-card, .card, .coupon, .letter, .final-box, .jar-card { border-radius: 24px; padding: 20px; }
+      .letter { font-size: .94rem; line-height: 1.85; }
+      .scorebar { flex-direction: column; align-items: stretch; border-radius: 22px; }
+      .scorebar button { width: 100%; }
+      .game-area { height: 330px; border-radius: 24px; }
+      .target { width: 54px; height: 54px; font-size: 30px; }
+      .big-pig { font-size: 76px; }
+      .section-title { display: block; }
+    }
+
+    @media (max-width: 390px) {
+      .screen { padding: 9px; }
+      .lock-card { padding: 20px 12px 14px; }
+      .keypad { gap: 7px; }
+      .keypad button { min-height: 48px; border-radius: 17px; font-size: .96rem; }
+      .pin-dot { width: 40px; height: 46px; }
+      .content { padding-left: 10px; padding-right: 10px; }
+    }
+  </style>
 </head>
+
 <body>
-
-<!-- BG Layers -->
-<div class="bg-wrap"></div>
-<div class="orbs">
-  <div class="orb"></div><div class="orb"></div><div class="orb"></div>
-  <div class="orb"></div><div class="orb"></div>
-</div>
-<div class="float-ems" id="femLayer"></div>
-<div class="sparkle-layer" id="sparkLayer"></div>
-<div class="star-rain" id="starRain"></div>
-
-<!-- Music -->
-<audio id="player" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
-</audio>
-<div id="music-btn" onclick="toggleMusic()">🎵</div>
-
-<!-- Toast -->
-<div class="toast" id="toast"></div>
-
-<!-- Ticker -->
-<div class="ticker-wrap">
-  <div class="ticker-track" id="ticker"></div>
-</div>
-
-<!-- MAIN CARD -->
-<div class="card" id="mainCard">
-
-  <!-- STAGE 1: PASSWORD -->
-  <div class="stage active" id="st1">
-    <div class="stage-badge">🔐 Stage 1 / 6</div>
-    <div class="prog-wrap"><div class="prog-bar" id="pb" style="width:0%"></div></div>
-    <div class="stage-title" style="color:var(--rose)">🐱 Secret Door 🪐</div>
-    <div class="stage-sub">ใส่รหัสลับเพื่อเริ่มการผจญภัย<br>💡 ใบ้นะเลขวันที่เราเกิด 4 ตัวเบยย</div>
-    <div class="dots">
-      <div class="dot" id="d0"></div>
-      <div class="dot" id="d1"></div>
-      <div class="dot" id="d2"></div>
-      <div class="dot" id="d3"></div>
-    </div>
-    <div class="keypad">
-      <button class="key" onclick="tap(1)">1</button>
-      <button class="key" onclick="tap(2)">2</button>
-      <button class="key" onclick="tap(3)">3</button>
-      <button class="key" onclick="tap(4)">4</button>
-      <button class="key" onclick="tap(5)">5</button>
-      <button class="key" onclick="tap(6)">6</button>
-      <button class="key" onclick="tap(7)">7</button>
-      <button class="key" onclick="tap(8)">8</button>
-      <button class="key" onclick="tap(9)">9</button>
-      <button class="key key-del" onclick="del()">⌫</button>
-      <button class="key" onclick="tap(0)">0</button>
-      <button class="key key-ok" onclick="checkPass()">✔</button>
-    </div>
-    <p class="hint-text" id="wrongHint"></p>
+  <div class="aurora"></div>
+  <div class="float-bg">
+    <div class="bubble">🐷</div>
+    <div class="bubble">💚</div>
+    <div class="bubble">✨</div>
+    <div class="bubble">🥺</div>
+    <div class="bubble">🌷</div>
+    <div class="bubble">💌</div>
   </div>
 
-  <!-- STAGE 2: LETTER -->
-  <div class="stage" id="st2">
-    <div class="stage-badge">💌 Stage 2 / 6</div>
-    <div class="prog-wrap"><div class="prog-bar" style="width:16%"></div></div>
-    <div class="stage-title" style="color:var(--purple)">📬 มีจดหมายถึงพิววววววว!</div>
-    <div class="stage-sub">จดหมายลับจากใครบางคน... ลองเปิดดูเบยย</div>
-    <div class="envelope-anim" onclick="go(3)" id="envelope">💌</div>
-    <div class="letter-preview">
-      <span>ถึงเธอคนที่ฉันแอบชอบมาสักพักแล้ว...</span><br>
-      <span>วันนี้อยากบอกว่า...</span>
-    </div>
-    <br>
-    <button class="btn-main btn-purple" onclick="go(3)">เปิดจดหมาย 💜</button>
-    <p style="font-size:0.7rem;color:#ccc;margin-top:10px;">⚠️ คลิกซองหรือปุ่มก็ได้นะ</p>
-  </div>
+  <audio id="bgMusic" src="love-song.mp3" loop preload="auto"></audio>
 
-  <!-- STAGE 3: QUIZ -->
-  <div class="stage" id="st3">
-    <div class="stage-badge">❓ Stage 3 / 6</div>
-    <div class="prog-wrap"><div class="prog-bar" style="width:32%"></div></div>
-    <div class="stage-title" style="color:var(--text)">🎀 Quiz Time!</div>
-    <div class="quiz-q">💬 วันนี้เหนื่อยม้ายยยยยยยย 🥺</div>
-    <button class="quiz-btn" onclick="go(4)">😮‍💨 เหนื่อยมากกก อยากได้กำลังใจ!</button>
-    <button class="quiz-btn" onclick="go(4)">😊 นิดหน่อย แต่เห็นข้อความนี้ก็หาย~</button>
-    <button class="quiz-btn" onclick="go(4)">💪 ไม่เหนื่อยเลย แข็งแกร่งมาก!</button>
-    <button class="quiz-btn quiz-btn-no" id="noBtn" onmouseover="runAway(event)" ontouchstart="runAway(event)">
-      😒 เหนื่อยแต่ไม่อยากบอกใคร...
-    </button>
-    <p style="font-size:0.7rem;color:#ccc;margin-top:8px;">ตอบหน่อยจิ</p>
-  </div>
+  <section id="lockScreen" class="screen active">
+    <div class="lock-card" id="lockCard">
+      <div class="sparkle-ring"></div>
+      <div class="lock-icon">🐷</div>
+      <div class="hint-pill">รหัสลับของคนขี้งอนเดาให้ถูกก 💚</div>
+      <h1 class="title"><span class="gradient-text">พื้นที่ง้อจิน</span></h1>
+      <p class="subtitle">
+        เว็บนี้เค้าทำให้จินคนเดียวเท่านั้นนะอ้วน<br>
+        กดรหัสให้ถูก แล้วเข้าไปดูภารกิจง้อแบบเต็มระบบ 🥺✨
+      </p>
 
-  <!-- STAGE 4: CLOVER GAME -->
-  <div class="stage" id="st4">
-    <div class="stage-badge">🍀 Stage 4 / 6</div>
-    <div class="prog-wrap"><div class="prog-bar" style="width:50%"></div></div>
-    <div class="stage-title" style="color:var(--mint)">🍀 Clover Garden!</div>
-    <div class="score-bar">
-      <div>
-        <div class="score-num" id="scoreNum">0</div>
-        <div class="score-label">ใบที่เก็บได้</div>
+      <div class="pin-display">
+        <div class="pin-dot" id="dot0">♡</div>
+        <div class="pin-dot" id="dot1">♡</div>
+        <div class="pin-dot" id="dot2">♡</div>
+        <div class="pin-dot" id="dot3">♡</div>
       </div>
-      <div class="mini-prog"><div class="mini-prog-fill" id="miniProg"></div></div>
-      <div style="font-size:1.5rem;font-weight:900;color:#aaa">/ 10</div>
-    </div>
-    <div id="game-box"></div>
-    <p class="game-tip">⬆️ คลิกโคลเวอร์สีเขียวเพื่อเก็บ! 🌸 สีชมพูระวัง!</p>
-  </div>
 
-  <!-- STAGE 5: GACHA -->
-  <div class="stage" id="st5">
-    <div class="stage-badge">🎰 Stage 5 / 6</div>
-    <div class="prog-wrap"><div class="prog-bar" style="width:66%"></div></div>
-    <div class="stage-title" style="color:var(--purple)">✨ Lucky Gacha!</div>
-    <div class="stage-sub">สุ่มๆๆๆๆๆๆ;p</div>
-    <div class="gacha-machine">
-      <div class="gacha-icon" id="gachaIcon">🎰</div>
-    </div>
-    <div class="gacha-result" id="gachaResult">
-      <span class="result-emoji" id="resultEmoji">🌟</span>
-      <div class="gacha-rarity" id="resultRarity">SSR</div>
-      <div id="resultText">คำอวยพรพิเศษ</div>
-    </div>
-    <br>
-    <button class="btn-main btn-purple" id="spinBtn" onclick="doSpin()">🎲 สุ่มเลย!</button>
-    <button class="btn-main" id="nextBtn" style="display:none" onclick="go(6)">ไปด่านสุดท้าย 🌸</button>
-  </div>
-
-  <!-- STAGE 6: FINAL -->
-  <div class="stage" id="st6">
-    <div class="stage-badge">🏆 Final Stage!</div>
-    <div class="prog-wrap"><div class="prog-bar" style="width:100%"></div></div>
-    <div class="final-wrap">
-      <img class="final-img" src="https://cdn-icons-png.flaticon.com/512/6591/6591035.png" alt="totoro" onerror="this.style.fontSize='80px';this.outerHTML='<div style=\'font-size:80px\'>🐱</div>'">
-      <div class="final-letter">
-        <p id="finalTxt"></p>
+      <div class="keypad">
+        <button onclick="pressKey('1')">1 🐷</button>
+        <button onclick="pressKey('2')">2 💚</button>
+        <button onclick="pressKey('3')">3 ✨</button>
+        <button onclick="pressKey('4')">4 🌷</button>
+        <button onclick="pressKey('5')">5 🥺</button>
+        <button onclick="pressKey('6')">6 🍰</button>
+        <button onclick="pressKey('7')">7 🧸</button>
+        <button onclick="pressKey('8')">8 💌</button>
+        <button onclick="pressKey('9')">9 🎀</button>
+        <button class="key-special" onclick="clearPin()">ล้าง</button>
+        <button onclick="pressKey('0')">0 🫶</button>
+        <button class="key-special" onclick="deletePin()">ลบ</button>
       </div>
-      <div class="final-sig">~ ด้วยรัก จากคนที่แอบซัพพอร์ตเธออยู่ 🍀 ~</div>
+
+      <div id="errorText" class="error"></div>
     </div>
-    <button class="btn-main btn-rose" onclick="replay()">🔄 เล่นใหม่อีกทีนะ!</button>
-  </div>
+  </section>
 
-</div>
+  <section id="mainScreen" class="screen">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">💚</div>
+          <div>
+            <strong>ง้อจิน.exe</strong>
+            <span>from เค้า to จิน</span>
+          </div>
+        </div>
 
-<script>
-// ===== CONFIG =====
-const SECRET = "9999";
-const GACHA_POOL = [
-  { r:"SSR", emoji:"🌟", text:"วันนี้เธอคือดาวที่สว่างที่สุด ไม่มีใครสว่างเท่าเธอในใจฉัน ✨" },
-  { r:"SSR", emoji:"💖", text:"เธอพิเศษมากนะ แค่รู้ว่าเธออยู่ดีก็ทำให้วันนี้สดใสแล้ว 💖" },
-  { r:"SR",  emoji:"🌈", text:"หลังฝนต้องมีรุ้ง และหลังวันเหนื่อยต้องมีคืนที่อบอุ่นเสมอ 🌈" },
-  { r:"SR",  emoji:"🍀", text:"โคลเวอร์สี่แฉกมีไม่บ่อย แต่โชคดีของเธอมีทุกวัน! 🍀" },
-  { r:"R",   emoji:"🌸", text:"เหมือนซากุระที่บานทุกปี เธอก็จะสดใสขึ้นทุกวันนะ~ 🌸" },
-  { r:"R",   emoji:"☕", text:"วันนี้อย่าลืมพักดื่มน้ำอุ่นๆ แล้วก็ยิ้มให้ตัวเองบ้างนะ ☕" },
-  { r:"SSR", emoji:"🏆", text:"เธอผ่านทุกด่านมาได้! นั่นพิสูจน์ว่าเธอเก่งแค่ไหน 🏆" },
-  { r:"SR",  emoji:"🎯", text:"ทุกก้าวที่เธอเดินมา ทำให้เธอแข็งแกร่งกว่าเดิมเสมอ 🎯" },
-];
-const FINAL_MSG = "ถึงคนที่เปิดจดหมายนี้...\n\nขอบคุณนะที่เดินทางมาถึงตรงนี้ 🍀 ไม่ว่าวันนี้จะเหนื่อยแค่ไหน ขอให้รู้ไว้ว่ามีคนคอยซัพพอร์ตเธออยู่เสมอ ยิ้มกว้างๆ นะคนเก่ง แล้วก็อย่าลืมรักตัวเองด้วยนะ 💖\n\nวันนี้เก่งมากเลย จริงๆ ไม่ได้พูดเล่น~";
-const TICKER_MSG = "🌸 ยินดีต้อนรับสู่ Ghibli Journey ✨ | 🍀  | 💌 มีจดหมายลับรอเธออยู่ | 🌟 ทุกก้าวที่เดินคือความกล้า | 🎀 เธอพิเศษมากนะ | 🌈 วันนี้ต้องดีแน่นอน | 💖 ซัพพอร์ตเธออยู่เสมอ | 🎵 เพลงนี้เปิดให้เธอโดยเฉพาะ | ";
+        <div class="mini-status">
+          สถานะตอนนี้: <b>เค้าสำนึกผิด 100%</b><br>
+          ภารกิจ: ทำให้จินยิ้มให้ได้ 🐷
+        </div>
 
-// ===== STATE =====
-let pin = "";
-let gameScore = 0;
-let gameIv = null;
-let musicOn = false;
-let spinCount = 0;
-let wrongCount = 0;
-let noBtnEscape = false;
+        <nav class="nav">
+          <button class="active-tab" onclick="showPage('home', this)">🏠 หน้าแรก</button>
+          <button onclick="showPage('letter', this)">💌 จดหมาย</button>
+          <button onclick="showPage('reasons', this)">🌷 เหตุผล</button>
+          <button onclick="showPage('jar', this)">🫙 โหลใจอ่อน</button>
+          <button onclick="showPage('game', this)">🎮 เกม</button>
+          <button onclick="showPage('coupons', this)">🎟️ คูปอง</button>
+          <button onclick="showPage('final', this)">🐷 ขอคืนดี</button>
+        </nav>
+      </aside>
 
-// ===== INIT =====
-window.addEventListener("load", () => {
-  buildFloatEmojis();
-  buildTicker();
-  startSparkles();
-  document.addEventListener("click", e => clickStar(e.clientX, e.clientY));
-});
+      <main class="content">
+        <button id="musicBtn" class="music-btn" onclick="toggleMusic()">🔊 เพลงกำลังเล่น</button>
 
-// ===== FLOATING EMOJIS =====
-function buildFloatEmojis() {
-  const layer = document.getElementById("femLayer");
-  const ems = ["🌸","🍀","✨","💫","🌟","💕","🌈","🦋","🌺","💮","🍃","⭐","💜","🌙"];
-  for(let i=0;i<18;i++){
-    const d = document.createElement("div");
-    d.className = "fem";
-    d.textContent = ems[Math.floor(Math.random()*ems.length)];
-    d.style.left = Math.random()*100+"%";
-    d.style.animationDuration = (8+Math.random()*14)+"s";
-    d.style.animationDelay = -(Math.random()*20)+"s";
-    d.style.fontSize = (18+Math.random()*22)+"px";
-    layer.appendChild(d);
-  }
-}
+        <section id="home" class="page active-page">
+          <div class="hero">
+            <span class="sparkle s1"></span>
+            <span class="sparkle s2"></span>
+            <span class="sparkle s3"></span>
+            <h1><span class="gradient-text">บี๋จิน เค้ามาง้อแล้วนะ</span></h1>
+            <p>
+              อ้วนอย่าเพิ่งงอนนานได้ไหม เว็บนี้เค้าตั้งใจทำให้บี๋โดยเฉพาะเลยนะ
+              มีทั้งคำขอโทษ จดหมายลับ เกมจับหมู โหลใจอ่อน และคูปองตามใจ
+              เพราะเค้าอยากเห็นบี๋ยิ้มอีกครั้งจริง ๆ 💚🐷
+            </p>
+            <div class="heart-row">
+              <span class="heart-chip">ขอโทษนะ 🥺</span>
+              <span class="heart-chip">คิดถึงบี๋ 💚</span>
+              <span class="heart-chip">ดีกันนะ 🐷</span>
+              <span class="heart-chip">เค้ายอมแล้ว ✨</span>
+              <span class="heart-chip">อยากกอด 🧸</span>
+            </div>
+          </div>
 
-// ===== TICKER =====
-function buildTicker() {
-  const t = document.getElementById("ticker");
-  t.textContent = TICKER_MSG + TICKER_MSG;
-}
+          <div class="wow-row">
+            <div class="wow-card">
+              <strong>💚 ภารกิจที่ 1</strong>
+              <span>อ่านข้อความง้อให้ครบ แล้วห้ามแอบยิ้มคนเดียวนะ</span>
+            </div>
+            <div class="wow-card">
+              <strong>🐷 ภารกิจที่ 2</strong>
+              <span>จับหมูน้อยในเกมให้ครบ เพื่อปลดล็อกความใจอ่อน</span>
+            </div>
+            <div class="wow-card">
+              <strong>🎟️ ภารกิจที่ 3</strong>
+              <span>เลือกคูปองตามใจได้เลย เค้าพร้อมชดใช้แบบน่ารัก</span>
+            </div>
+          </div>
+        </section>
 
-// ===== SPARKLES =====
-function startSparkles() {
-  setInterval(() => {
-    const l = document.getElementById("sparkLayer");
-    const s = document.createElement("div");
-    s.className = "spark";
-    s.style.left = Math.random()*100+"vw";
-    s.style.top  = Math.random()*100+"vh";
-    s.style.background = ["#f4bbe9","#95C5f9","#70d4ba","#fcf299","#bdb4f1","#e7847f"][Math.floor(Math.random()*6)];
-    s.style.width = s.style.height = (4+Math.random()*10)+"px";
-    l.appendChild(s);
-    setTimeout(()=>s.remove(), 1200);
-  }, 300);
-}
+        <section id="letter" class="page">
+          <div class="section-title">
+            <h2>💌 จดหมายง้อจากเค้า</h2>
+            <button onclick="openSecretLetter()" class="open-letter-btn">เปิดข้อความลับ ✨</button>
+          </div>
 
-// ===== CLICK STARS =====
-function clickStar(x,y) {
-  const ems = ["⭐","✨","💫","🌸","💖","🍀"];
-  const el = document.createElement("div");
-  el.className = "click-star";
-  el.style.left = (x-12)+"px";
-  el.style.top  = (y-12)+"px";
-  el.textContent = ems[Math.floor(Math.random()*ems.length)];
-  document.body.appendChild(el);
-  setTimeout(()=>el.remove(), 600);
-}
+          <div class="letter">
+            ถึง <b>บี๋จินคนเก่ง</b> 🐷<br><br>
+            เค้าขอโทษนะ ถ้ามีอะไรที่ทำให้อ้วนเสียใจ งอน หรือรู้สึกไม่ดี
+            เค้าไม่ได้อยากให้บี๋ต้องรู้สึกแบบนั้นเลยจริง ๆ
+            อ้วนสำคัญกับเค้ามากนะ มากแบบที่เค้าต้องทำเว็บนี้ขึ้นมาเพื่อบอกว่า
+            <b>เค้าแคร์ความรู้สึกบี๋มาก ๆ</b><br><br>
+            ถ้าบี๋ยังงอนอยู่ เค้าจะค่อย ๆ ง้อ ไม่เร่ง ไม่กดดัน
+            แต่เค้าขออยู่ตรงนี้ด้วยความตั้งใจจริงว่าอยากทำให้ดีขึ้น
+            และอยากให้บี๋รู้ว่า <b>เค้าไม่ได้มองข้ามความรู้สึกบี๋เลย</b><br><br>
+            จากคนชื่อ <b>เค้า</b> ที่อยากให้บี๋ยิ้มอีกครั้ง 💚
+          </div>
 
-// ===== KEYPAD =====
-function tap(n) {
-  if(pin.length >= 4) return;
-  pin += n;
-  updateDots();
-  if(pin.length === 4) setTimeout(checkPass, 300);
-}
-function del() {
-  pin = pin.slice(0,-1);
-  updateDots();
-  document.getElementById("wrongHint").textContent = "";
-}
-function updateDots() {
-  for(let i=0;i<4;i++){
-    const d = document.getElementById("d"+i);
-    d.classList.toggle("filled", i < pin.length);
-  }
-}
-function checkPass() {
-  if(pin === SECRET) {
-    boom(40);
-    showToast("🎉 เยส! รหัสถูกต้องแล้ว!");
-    setTimeout(()=>go(2), 600);
-  } else {
-    wrongCount++;
-    const hints = [
-      "อุ๊ย ผิดแล้ว! ลองใหม่นะ 😋",
-      "ยังไม่ถูกเลย~ hint: ตัวเลขเรียงกัน 😏",
-      "ล้มเหลวซ้ำๆ เหมือนฉันที่ชอบเธอ 😂",
-      "ผิดอีกแล้ว! มาๆ เดาง่ายๆ ได้เลย 🤭",
-      "OK จะบอกเลย มันคือ 1-2-3-4 นะ 😂",
-    ];
-    document.getElementById("wrongHint").textContent = hints[Math.min(wrongCount-1, hints.length-1)];
-    const dots = document.querySelectorAll(".dot");
-    dots.forEach(d => d.classList.add("wrong"));
-    setTimeout(() => dots.forEach(d => d.classList.remove("wrong","filled")), 600);
-    pin = "";
-    shakeDots();
-  }
-}
-function shakeDots() {
-  const wrap = document.querySelector(".dots");
-  wrap.style.animation = "shake 0.4s ease";
-  setTimeout(()=>wrap.style.animation="",450);
-}
+          <div id="secretNote" class="secret-note">
+            ข้อความลับ: บี๋อาจจะงอนเก่งนิดนึง แต่บี๋น่ารักมากกกกกกกกกกกกกกกกก เค้าแพ้ทางหมดแล้ว 🥺💚
+          </div>
+        </section>
 
-// ===== NAVIGATION =====
-function go(n) {
-  document.querySelectorAll(".stage").forEach(s=>s.classList.remove("active"));
-  const el = document.getElementById("st"+n);
-  if(el) el.classList.add("active");
-  if(n===4) initGame();
-  if(n===6) startFinal();
-  // scroll to top of card
-  document.getElementById("mainCard").scrollTop = 0;
-}
+        <section id="reasons" class="page">
+          <h2>🌷 ทำไมเค้าต้องง้อบี๋</h2>
+          <div class="grid">
+            <div class="card">
+              <div class="emoji">🐷</div>
+              <h3>เพราะบี๋น่ารัก</h3>
+              <p>ถึงจะงอนก็ยังน่ารักอยู่ดี แต่ถ้ายิ้มจะน่ารักกว่าเดิมสิบเท่า</p>
+            </div>
+            <div class="card">
+              <div class="emoji">🥺</div>
+              <h3>เพราะเค้ารู้สึกผิด</h3>
+              <p>เค้าไม่อยากให้บี๋เสียใจ และอยากปรับปรุงตัวให้ดีกว่านี้จริง ๆ</p>
+            </div>
+            <div class="card">
+              <div class="emoji">💚</div>
+              <h3>เพราะบี๋สำคัญ</h3>
+              <p>บี๋ไม่ใช่คนธรรมดา แต่เป็นคนพิเศษที่เค้าอยากรักษาไว้</p>
+            </div>
+            <div class="card">
+              <div class="emoji">🍰</div>
+              <h3>พร้อมเลี้ยงของอร่อย</h3>
+              <p>บี๋เลือกได้เลย อยากกินอะไร เค้าพร้อมตามใจเต็มที่</p>
+            </div>
+            <div class="card">
+              <div class="emoji">🧸</div>
+              <h3>พร้อมฟังบี๋</h3>
+              <p>บี๋อยากพูดอะไร เค้าจะตั้งใจฟัง ไม่เถียง ไม่ดื้อ</p>
+            </div>
+            <div class="card">
+              <div class="emoji">✨</div>
+              <h3>อยากเริ่มใหม่ดี ๆ</h3>
+              <p>ขอแก้ตัวอีกครั้ง แล้วเค้าจะทำให้บี๋รู้สึกดีขึ้นกว่าเดิม</p>
+            </div>
+          </div>
+        </section>
 
-// ===== QUIZ: RUN AWAY BUTTON =====
-function runAway(e) {
-  const btn = document.getElementById("noBtn");
-  if(!noBtnEscape) {
-    noBtnEscape = true;
-    btn.classList.add("running-away");
-    btn.textContent = "😏 กดไม่ได้หรอกนะ~";
-  }
-  const margin = 80;
-  const maxX = window.innerWidth  - btn.offsetWidth  - margin;
-  const maxY = window.innerHeight - btn.offsetHeight - margin;
-  btn.style.left = (margin + Math.random()*maxX)+"px";
-  btn.style.top  = (margin + Math.random()*maxY)+"px";
-  showToast("🏃 ปุ่มหนีไปแล้ว! คลิกปุ่มอื่นแทนเลย~");
-}
+        <section id="jar" class="page">
+          <h2>🫙 โหลใจอ่อนของบี๋</h2>
+          <div class="jar-card">
+            <p>กดปุ่มเพื่อเติมหัวใจลงโหล ถ้าเต็มแล้วแปลว่าบี๋เริ่มใจอ่อนแล้วนะ 🥺</p>
+            <div id="jar" class="jar"></div>
+            <p><b>หัวใจในโหล:</b> <span id="jarCount">0</span>/12 💚</p>
+            <button onclick="addJarHeart()">เติมหัวใจให้เค้า 1 ดวง 💚</button>
+          </div>
+        </section>
 
-// ===== CLOVER GAME =====
-function initGame() {
-  gameScore = 0;
-  document.getElementById("scoreNum").textContent = "0";
-  document.getElementById("miniProg").style.width = "0%";
-  const box = document.getElementById("game-box");
-  box.innerHTML = "";
-  if(gameIv) clearInterval(gameIv);
+        <section id="game" class="page">
+          <h2>🎮 เกมง้อบี๋: จับหมูให้ครบ 10 ตัว</h2>
+          <div class="game-box">
+            <div class="scorebar">
+              <strong>คะแนนความใจอ่อน: <span id="score">0</span>/10 🐷</strong>
+              <button onclick="startGame()">เริ่มเกมใหม่</button>
+            </div>
+            <div id="gameArea" class="game-area">
+              <div style="padding:26px; line-height:1.8; opacity:.8;">
+                กดเริ่มเกม แล้วจับหมูน้อยที่เด้งขึ้นมาให้ครบ 10 ตัวนะบี๋ 🐷💚
+              </div>
+            </div>
+          </div>
+        </section>
 
-  gameIv = setInterval(() => {
-    if(gameScore >= 10) {
-      clearInterval(gameIv);
-      showToast("🏆 เก็บครบแล้ว! ไปต่อ!");
-      boom(25);
-      setTimeout(()=>go(5), 800);
-      return;
-    }
-    spawnItem(box);
-  }, 700);
-}
+        <section id="coupons" class="page">
+          <h2>🎟️ คูปองตามใจบี๋</h2>
+          <div class="coupon-grid">
+            <div class="coupon">
+              <h3>คูปองเลี้ยงของอร่อย 🍜</h3>
+              <p>ใช้ได้ 1 ครั้ง หรือหลายครั้งถ้าบี๋ยังไม่หายงอน</p>
+            </div>
+            <div class="coupon">
+              <h3>คูปองง้อแบบไม่เถียง 🥺</h3>
+              <p>บี๋พูด เค้าฟัง บี๋บ่น เค้ารับฟังอย่างตั้งใจ</p>
+            </div>
+            <div class="coupon">
+              <h3>คูปองกอดปลอบใจ 🧸</h3>
+              <p>ใช้เมื่อบี๋อยากได้กำลังใจ หรืออยากให้เค้าอยู่ข้าง ๆ</p>
+            </div>
+            <div class="coupon">
+              <h3>คูปองตามใจ 1 วัน 💚</h3>
+              <p>วันนี้บี๋เป็นหัวหน้า เค้าเป็นลูกหมูเชื่อฟัง 🐷</p>
+            </div>
+            <div class="coupon">
+              <h3>คูปองโทรง้อไม่จำกัด 📞</h3>
+              <p>ใช้ได้เมื่อบี๋อยากให้เค้าง้อด้วยเสียงอ้อน ๆ</p>
+            </div>
+            <div class="coupon">
+              <h3>คูปองขอโทษพิเศษ ✨</h3>
+              <p>เค้าจะพูดขอโทษแบบจริงใจ พร้อมทำตัวดีขึ้นกว่าเดิม</p>
+            </div>
+          </div>
+        </section>
 
-function spawnItem(box) {
-  const isClover = Math.random() > 0.35;
-  const item = document.createElement("div");
-  item.className = "clover-item";
-  item.textContent = isClover ? "🍀" : ["🌸","🌺","💮"][Math.floor(Math.random()*3)];
-  item.style.left  = (5+Math.random()*80)+"%";
-  item.style.top   = "-50px";
-  item.style.transition = `top ${2+Math.random()*2}s linear`;
-  box.appendChild(item);
+        <section id="final" class="page">
+          <div class="final-box">
+            <div class="big-pig">🐷</div>
+            <h2>บี๋ หายงอนเค้าได้ไหม</h2>
+            <p>ถ้าบี๋กดปุ่มนี้ แปลว่าใจอ่อนขึ้น 1,000% แล้วนะ 💚</p>
+            <div class="love-meter"><div id="loveFill" class="love-fill"></div></div>
+            <button class="forgive-btn" onclick="forgiveMe()">ดีกันนะอ้วน 🥺💚</button>
+            <div class="runaway-wrap">
+              <button id="noBtn" class="no-btn" onmouseover="runAway()" onclick="runAway()">ยังงอนอยู่ 😤</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </section>
 
-  setTimeout(()=>{ item.style.top = "270px"; },80);
-  setTimeout(()=>item.remove(), 4500);
+  <div id="toast" class="toast">บี๋น่ารักที่สุดในโลก 🐷💚</div>
 
-  if(isClover) {
-    item.onclick = (e) => {
-      gameScore++;
-      document.getElementById("scoreNum").textContent = gameScore;
-      document.getElementById("miniProg").style.width = (gameScore*10)+"%";
-      spawnCombo(e.clientX, e.clientY, gameScore);
-      item.remove();
-      if(gameScore >= 10) {
-        clearInterval(gameIv);
-        showToast("🏆 เก็บครบ 10 ใบแล้ว! เก่งมาก!");
-        boom(25);
-        setTimeout(()=>go(5), 1000);
+  <script>
+    const lockScreen = document.getElementById('lockScreen');
+    const mainScreen = document.getElementById('mainScreen');
+    const errorText = document.getElementById('errorText');
+    const toast = document.getElementById('toast');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const gameArea = document.getElementById('gameArea');
+    const scoreText = document.getElementById('score');
+    const jar = document.getElementById('jar');
+    const jarCountText = document.getElementById('jarCount');
+    const noBtn = document.getElementById('noBtn');
+
+    let pin = '';
+    let score = 0;
+    let targetTimer;
+    let jarCount = 0;
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('button')) return;
+      const heart = document.createElement('div');
+      heart.className = 'tap-heart';
+      heart.textContent = Math.random() > .5 ? '💚' : '✨';
+      heart.style.left = e.clientX + 'px';
+      heart.style.top = e.clientY + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 900);
+    });
+
+    function pressKey(num) {
+      if (pin.length >= 4) return;
+      pin += num;
+      updatePinDisplay();
+      popMiniHeart();
+
+      if (pin.length === 4) {
+        setTimeout(checkPassword, 220);
       }
-    };
-  } else {
-    item.onclick = () => {
-      showToast("😅 อุ๊ย! อย่าเก็บดอกไม้สิ!");
-      item.style.animation = "shake 0.3s ease";
-      setTimeout(()=>item.remove(), 400);
-    };
-  }
-}
+    }
 
-function spawnCombo(x, y, sc) {
-  const msgs = ["Nice! 🌟","Combo! ✨","Good! 💚","Amazing! 🍀","Wow! 🏆"];
-  const el = document.createElement("div");
-  el.className = "combo-text";
-  el.style.left = (x-40)+"px";
-  el.style.top  = (y-30)+"px";
-  el.textContent = sc >= 9 ? "LAST ONE!! 🔥" : msgs[Math.floor(Math.random()*msgs.length)];
-  document.body.appendChild(el);
-  setTimeout(()=>el.remove(),800);
-}
+    function deletePin() {
+      pin = pin.slice(0, -1);
+      updatePinDisplay();
+    }
 
-// ===== GACHA =====
-function doSpin() {
-  spinCount++;
-  const icon = document.getElementById("gachaIcon");
-  const btn  = document.getElementById("spinBtn");
-  const res  = document.getElementById("gachaResult");
-  btn.disabled = true;
-  icon.classList.add("spinning");
-  res.style.display = "none";
+    function clearPin() {
+      pin = '';
+      updatePinDisplay();
+      errorText.textContent = '';
+    }
 
-  let frames = 0;
-  const maxFrames = 15 + spinCount*5;
-  const iv = setInterval(()=>{
-    const tmp = GACHA_POOL[Math.floor(Math.random()*GACHA_POOL.length)];
-    document.getElementById("resultEmoji").textContent = tmp.emoji;
-    document.getElementById("resultText").textContent  = tmp.text;
-    const rc = document.getElementById("resultRarity");
-    rc.className = `gacha-rarity rarity-${tmp.r.toLowerCase()}`;
-    rc.textContent = tmp.r;
-    frames++;
-    if(frames >= maxFrames){
-      clearInterval(iv);
-      icon.classList.remove("spinning");
-      res.style.display = "block";
-      btn.disabled = false;
-      boom(20);
-      floatHearts();
-      if(spinCount >= 3){
-        btn.style.display = "none";
-        document.getElementById("nextBtn").style.display = "inline-block";
-        showToast("🌟 สุ่มครบ 3 ครั้งแล้ว! ไปด่านสุดท้ายได้เลย!");
+    function updatePinDisplay() {
+      for (let i = 0; i < 4; i++) {
+        const dot = document.getElementById('dot' + i);
+        if (pin[i]) {
+          dot.textContent = '🐷';
+          dot.classList.add('filled');
+        } else {
+          dot.textContent = '♡';
+          dot.classList.remove('filled');
+        }
+      }
+    }
+
+    function checkPassword() {
+      if (pin === '5555') {
+        errorText.textContent = '';
+        lockScreen.classList.remove('active');
+        mainScreen.classList.add('active');
+        playMusic();
+        showToast('ยินดีต้อนรับบี๋จิน 🐷💚 เพลงเริ่มแล้วนะ');
+        makeConfetti();
       } else {
-        showToast(`✨ ได้รับ ${tmp.r}! สุ่มอีก ${3-spinCount} ครั้งก็ไปต่อได้!`);
+        errorText.textContent = 'ไอ้อ้วนยังไม่ถูกก 🐷 ลองใหม่อีกทีนะ';
+        pin = '';
+        updatePinDisplay();
       }
     }
-  }, 80);
-}
 
-function floatHearts() {
-  const ems = ["💖","💕","💗","💓","💘","🩷"];
-  for(let i=0;i<12;i++){
-    const el = document.createElement("div");
-    el.className = "heart-fly";
-    el.textContent = ems[Math.floor(Math.random()*ems.length)];
-    el.style.left  = (20+Math.random()*60)+"vw";
-    el.style.bottom = "60px";
-    el.style.animationDuration = (2+Math.random()*2)+"s";
-    el.style.animationDelay   = (Math.random()*0.8)+"s";
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(),4000);
-  }
-}
+    function popMiniHeart() {
+      const heart = document.createElement('div');
+      heart.textContent = Math.random() > .45 ? '💚' : '🐷';
+      heart.style.position = 'fixed';
+      heart.style.left = (42 + Math.random() * 16) + 'vw';
+      heart.style.top = (46 + Math.random() * 18) + 'vh';
+      heart.style.fontSize = '29px';
+      heart.style.pointerEvents = 'none';
+      heart.style.zIndex = '100';
+      heart.style.animation = 'miniPop .85s ease forwards';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 900);
+    }
 
-// ===== FINAL =====
-function startFinal() {
-  boom(60);
-  floatHearts();
-  typeIt(FINAL_MSG);
-  setTimeout(()=>launchConfetti(), 300);
-}
+    function playMusic() {
+      bgMusic.volume = 0.55;
+      bgMusic.play().then(() => {
+        musicBtn.textContent = '🔊 เพลงกำลังเล่น';
+      }).catch(() => {
+        musicBtn.textContent = '▶️ กดเปิดเพลง';
+        showToast('ถ้าเพลงยังไม่เล่น กดปุ่มเปิดเพลงด้านขวาล่างนะ 💚');
+      });
+    }
 
-function typeIt(txt) {
-  const el = document.getElementById("finalTxt");
-  el.textContent = "";
-  let i=0;
-  const iv = setInterval(()=>{
-    if(i>=txt.length){ clearInterval(iv); return; }
-    el.textContent += txt[i];
-    i++;
-  }, 45);
-}
+    function toggleMusic() {
+      if (bgMusic.paused) {
+        playMusic();
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = '🔇 ปิดเพลงอยู่';
+        showToast('ปิดเพลงแล้วนะบี๋');
+      }
+    }
 
-function launchConfetti() {
-  const colors = ["#f4bbe9","#70d4ba","#95C5f9","#bdb4f1","#fcf299","#e7847f","white"];
-  for(let i=0;i<80;i++){
-    const c = document.createElement("div");
-    c.className = "confetti-piece";
-    c.style.background = colors[Math.floor(Math.random()*colors.length)];
-    c.style.left  = Math.random()*100+"vw";
-    c.style.top   = "-20px";
-    c.style.width  = (6+Math.random()*10)+"px";
-    c.style.height = (6+Math.random()*10)+"px";
-    c.style.borderRadius = Math.random()>0.5?"50%":"2px";
-    c.style.animationDuration = (2+Math.random()*3)+"s";
-    c.style.animationDelay    = (Math.random()*2)+"s";
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(), 6000);
-  }
-}
+    function showPage(pageId, btn) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active-page'));
+      document.getElementById(pageId).classList.add('active-page');
 
-// ===== UTILS =====
-function boom(count=30) {
-  const ems = ["💖","✨","🌸","🍀","⭐","💫","🌟","💕"];
-  for(let i=0;i<count;i++){
-    const h = document.createElement("div");
-    h.className = "heart-fly";
-    h.textContent = ems[Math.floor(Math.random()*ems.length)];
-    h.style.left   = Math.random()*100+"vw";
-    h.style.bottom = Math.random()*40+"%";
-    h.style.fontSize = (16+Math.random()*20)+"px";
-    h.style.animationDuration = (1.5+Math.random()*2.5)+"s";
-    h.style.animationDelay    = (Math.random()*1.2)+"s";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),5000);
-  }
-}
+      document.querySelectorAll('.nav button').forEach(button => button.classList.remove('active-tab'));
+      btn.classList.add('active-tab');
 
-let toastTimer = null;
-function showToast(msg) {
-  const t = document.getElementById("toast");
-  t.textContent = msg;
-  t.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove("show"),2800);
-}
+      if (pageId === 'final') {
+        setTimeout(() => document.getElementById('loveFill').style.width = '100%', 250);
+      }
+    }
 
-function toggleMusic() {
-  const p  = document.getElementById("player");
-  const b  = document.getElementById("music-btn");
-  musicOn  = !musicOn;
-  if(musicOn) { p.play().catch(()=>{}); b.textContent="⏸️"; }
-  else        { p.pause(); b.textContent="🎵"; }
-}
+    function openSecretLetter() {
+      const secretNote = document.getElementById('secretNote');
+      secretNote.classList.toggle('show');
+      showToast(secretNote.classList.contains('show') ? 'เปิดข้อความลับแล้ว 🥺💚' : 'พับข้อความลับไว้ก่อนนะ');
+      if (secretNote.classList.contains('show')) makeConfetti(25);
+    }
 
-function replay() {
-  pin = "";
-  gameScore = 0;
-  spinCount = 0;
-  wrongCount = 0;
-  noBtnEscape = false;
-  const noBtn = document.getElementById("noBtn");
-  noBtn.classList.remove("running-away");
-  noBtn.style.left = noBtn.style.top = "";
-  noBtn.textContent = "😒 เหนื่อยแต่ไม่อยากบอกใคร...";
-  document.getElementById("spinBtn").style.display = "inline-block";
-  document.getElementById("nextBtn").style.display = "none";
-  document.getElementById("gachaResult").style.display = "none";
-  document.getElementById("gachaIcon").classList.remove("spinning");
-  document.getElementById("wrongHint").textContent = "";
-  updateDots();
-  go(1);
-  showToast("🔄 ให้แค่คนน่ารักเล่นแบร ่่ ่ ่่ ่ ่่ ");
-}
-</script>
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2300);
+    }
+
+    function addJarHeart() {
+      if (jarCount >= 12) {
+        showToast('โหลเต็มแล้ว บี๋ต้องหายงอนแล้วแหละ 🐷💚');
+        makeConfetti();
+        return;
+      }
+
+      jarCount++;
+      jarCountText.textContent = jarCount;
+
+      const heart = document.createElement('div');
+      heart.className = 'jar-heart';
+      heart.textContent = Math.random() > .3 ? '💚' : '🐷';
+      heart.style.left = (18 + Math.random() * 65) + '%';
+      heart.style.top = (35 + Math.random() * 48) + '%';
+      heart.style.transform = 'rotate(' + (Math.random() * 40 - 20) + 'deg)';
+      jar.appendChild(heart);
+
+      showToast(jarCount < 12 ? 'เติมหัวใจแล้ว บี๋ใจอ่อนขึ้นนิดนึง 💚' : 'เต็มโหลแล้ววว ดีกันนะ 🥺');
+      if (jarCount === 12) makeConfetti();
+    }
+
+    function startGame() {
+      score = 0;
+      scoreText.textContent = score;
+      clearTimeout(targetTimer);
+      gameArea.innerHTML = '';
+      spawnTarget();
+      showToast('จับหมูน้อยให้ได้เลยบี๋ 🐷');
+    }
+
+    function spawnTarget() {
+      gameArea.innerHTML = '';
+      if (score >= 10) {
+        gameArea.innerHTML = '<div style="display:grid;place-items:center;height:100%;font-size:1.35rem;font-weight:700;text-align:center;line-height:2;padding:18px;">ชนะแล้ววว! บี๋ใจอ่อนแล้วใช่มั้ย 🐷💚<br>เค้าขอโทษน้าาา 🥺</div>';
+        makeConfetti();
+        showToast('คะแนนความใจอ่อนเต็มแล้ว 💚');
+        return;
+      }
+
+      const target = document.createElement('button');
+      target.className = 'target';
+      target.textContent = Math.random() > 0.35 ? '🐷' : '💚';
+
+      const maxX = Math.max(20, gameArea.clientWidth - 76);
+      const maxY = Math.max(20, gameArea.clientHeight - 76);
+      target.style.left = Math.max(10, Math.random() * maxX) + 'px';
+      target.style.top = Math.max(10, Math.random() * maxY) + 'px';
+
+      target.onclick = () => {
+        score++;
+        scoreText.textContent = score;
+        showToast(score < 10 ? 'เก่งมากบี๋ จับได้แล้ว 🐷' : 'บี๋ชนะแล้ว 💚');
+        spawnTarget();
+      };
+
+      gameArea.appendChild(target);
+      targetTimer = setTimeout(spawnTarget, 1250);
+    }
+
+    function forgiveMe() {
+      document.getElementById('loveFill').style.width = '100%';
+      showToast('เย้ ดีกันแล้วนะบี๋ เค้าจะทำตัวดี ๆ 🐷💚');
+      makeConfetti(85);
+    }
+
+    function runAway() {
+      const wrap = noBtn.parentElement.getBoundingClientRect();
+      const maxX = Math.max(0, wrap.width - noBtn.offsetWidth);
+      const maxY = Math.max(0, wrap.height - noBtn.offsetHeight);
+      noBtn.style.left = Math.random() * maxX + 'px';
+      noBtn.style.top = Math.random() * maxY + 'px';
+      showToast('ปุ่มนี้กดไม่ได้หรอก ต้องกดดีกันเท่านั้น 🥺');
+    }
+
+    function makeConfetti(amount = 60) {
+      const colors = ['#b8ffe8', '#7ee8c6', '#ff9fd2', '#fff0a7', '#ffffff'];
+      const emojis = ['💚', '🐷', '✨', '🌷', '🥺'];
+
+      for (let i = 0; i < amount; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti';
+
+        if (Math.random() > .65) {
+          piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          piece.style.width = 'auto';
+          piece.style.height = 'auto';
+          piece.style.background = 'transparent';
+          piece.style.fontSize = (16 + Math.random() * 12) + 'px';
+        } else {
+          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.animationDelay = Math.random() * .75 + 's';
+        piece.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 2600);
+      }
+    }
+  </script>
 </body>
 </html>
